@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+.cache/
+public
+sanity/node_modules
+sanity/config
+
+# testing
+/coverage
+
+# production
+/build
+/dist
+/.next
+
+# misc
+.DS_Store
+.env
+npm-debug.log*
