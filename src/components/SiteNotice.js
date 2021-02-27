@@ -29,7 +29,6 @@ const SiteNoticeStyles = styled.div`
             margin: 5px;
         }
     }
-
 `;
 
 export default function SiteNotice() {

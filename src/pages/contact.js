@@ -67,7 +67,7 @@ export default function ContactPage() {
                         <p>For new and existing customer orders, or order issues please email <a href="mailto:orders@cheekytea.co.uk">orders@cheekytea.co.uk</a>.</p>
                         <div class="phone-mail">
                             <p><MdLocalPostOffice style={{ color: "var(--black)" }} /><br /> 93 Barley Leaze, Chippenham SN14 6GW</p>
-                            <p><FaPhoneAlt style={{ color: "var(--black)" }}/><br />Call us on<br /> 0333 333 3333</p>
+                            <p><FaPhoneAlt style={{ color: "var(--black)" }}/><br />Call us on<br /> 0800 292 6064</p>
                         </div>
                     </div>
                     <div>

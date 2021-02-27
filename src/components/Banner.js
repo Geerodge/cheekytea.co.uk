@@ -73,7 +73,7 @@ export default function Banner() {
                 <span></span>
                     <h2>Join our Newsletter and Save 10%*</h2>
                     <p>Sign up now to learn more about tea, improving your health, wellbeing tips and save *10% off your first order.</p>
-                    <a className="button" href="/">Subscribe Now</a>
+                    <a className="button" target="_blank" rel="noreferrer" rel href="https://tinyletter.com/CheekyTea">Subscribe Now</a>
             </div>
         </BannerStyles>
     )

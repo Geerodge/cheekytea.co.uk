@@ -21,16 +21,6 @@ const AccordionStyles = styled.div`
     p {
         margin-left: 35px;
     }
-    a {
-        text-decoration: none;
-        color: var(--black);
-        text-decoration: underline;
-        &:hover {
-            color: var(--green);
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-        }
-    }
 `;
 
 function SingleAccordion({ faqs }) {

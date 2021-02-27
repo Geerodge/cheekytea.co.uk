@@ -56,6 +56,17 @@ const GlobalStyles = createGlobalStyle`
         border-bottom: 1px dashed var(--black);
   }
 
+  a {
+        text-decoration: none;
+        color: var(--green);
+        text-decoration: underline;
+        &:hover {
+            color: var(--black);
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
 `;
 
 export default GlobalStyles;

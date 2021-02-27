@@ -79,7 +79,7 @@ export default function FooterSections() {
             </div>
             <div>
                 <h3>Contact Us</h3>
-                <p><FaPhoneAlt style={{ color: "var(--black)" }}/> 0333 333 3333</p>
+                <p><FaPhoneAlt style={{ color: "var(--black)" }}/> 0800 292 6064</p>
                 <p><HiOutlineMail /> <a href="mailto:hello@cheekytea.co.uk">hello@cheekytea.co.uk</a></p>
             </div>
         </FooterStyles>

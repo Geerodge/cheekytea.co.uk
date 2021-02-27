@@ -8,7 +8,10 @@ export default function Nav() {
     return (
     <NavStyles>
         <nav>
-            <ul>
+            <Link to="/" className="logo">Cheeky Tea</Link>
+            <input className="menu-btn" type="checkbox" id="menu-btn" />
+            <label className="menu-icon" for="menu-btn"><span className="navicon"></span></label>
+            <ul className="menu">
                 <li>
                     <Link to="/about">About</Link>
                 </li>
@@ -16,7 +19,7 @@ export default function Nav() {
                     <Link to="/shop">Tea Shop</Link>
                 </li>
                 <li>
-                    <Link to="/"><img src={logo} alt="logo" /></Link>
+                    <Link to="/"><img src={logo} alt="logo" id="logo"/></Link>
                 </li>
                 <li>
                     <Link to="/faq">FAQ</Link>

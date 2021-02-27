@@ -21,16 +21,6 @@ const AboutStyles = styled.div`
         width: 50%;
         margin: 0 auto;
     }
-    a {
-        text-decoration: none;
-        color: var(--black);
-        text-decoration: underline;
-        &:hover {
-            color: var(--green);
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-        }
-    }
     .react-icons {
         vertical-align: middle;
         margin-bottom: 10px;
