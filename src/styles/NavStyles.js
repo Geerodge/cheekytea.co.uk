@@ -28,7 +28,7 @@ li:nth-child(3){
     cursor: pointer;
     display: block;
     float: right;
-    padding: 28px 20px;
+    padding: 34px 20px;
     position: relative;
     user-select: none;
 }
@@ -78,10 +78,10 @@ li:nth-child(3){
     top: 0;
 }
 
-.logo {
-    font-weight: bold;
-    padding: 17px 20px;
+.logo-nav {
+    padding: 0;
     float: left;
+    max-width: 70%;
 }
 
 /* 48em = 768px */
