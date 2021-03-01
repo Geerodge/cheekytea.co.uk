@@ -3,17 +3,6 @@ import { Link } from "gatsby";
 import logo from "../assets/images/logo.png";
 import NavStyles from "../styles/NavStyles";
 
-// Hides mobile menu on scroll
-function hideMenu() {
-    let menuOpen = document.querySelector('.menu-btn').checked;
-
-    if(menuOpen = true){
-        document.querySelector('.menu-btn').checked = false;
-    }
-}
-window.addEventListener("scroll", toggleMenu);
-
-
 export default function Nav() {
     // Hides mobile menu on menu click
     const [checked, setChecked] = useState(false);
