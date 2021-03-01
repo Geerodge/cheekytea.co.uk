@@ -138,7 +138,7 @@ export default function AboutPage(props) {
                         <p><Link to="/shop">Visit our tea shop now</Link> and grab yourself a cheeky cuppa!</p>
                     </div>
                     <div className="section2">
-                        <img src="https://cheekytea.co.uk/wp-content/uploads/2019/02/girl-drinking-tea-1024x681.jpg" max-width="100%" width="500" />
+                        <img alt="George McEntegart" src="https://cheekytea.co.uk/wp-content/uploads/2019/02/girl-drinking-tea-1024x681.jpg" max-width="100%" width="500" />
                     </div>
                     <div className="section3">
                         <h2>Making Time for You</h2><BiTimeFive size={32} className="react-icons" />
