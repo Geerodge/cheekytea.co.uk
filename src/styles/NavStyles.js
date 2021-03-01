@@ -16,14 +16,18 @@ li:nth-child(3){
     display: none;
 }
 
-/* menu */
+/* Menu */
 .menu {
     clear: both;
     max-height: 0;
     transition: max-height .2s ease-out;
+    margin-bottom: 20px;
+    a {
+        border-right: none;
+    }
 }
 
-/* menu icon */
+/* Menu Icon */
 .menu-icon {
     cursor: pointer;
     display: block;
@@ -57,12 +61,12 @@ li:nth-child(3){
     top: -5px;
 }
 
-/* menu btn */
+/* Menu btn */
 .menu-btn {
     display: none;
 }
 .menu-btn:checked ~ .menu {
-    max-height: 240px;
+    max-height:260px;
 }
 .menu-btn:checked ~ .menu-icon .navicon {
     background: transparent;
@@ -84,8 +88,8 @@ li:nth-child(3){
     max-width: 70%;
 }
 
-/* 48em = 768px */
-@media (min-width: 48em) {
+
+@media (min-width: 768px) {
     nav li {
         float: left;
     }
