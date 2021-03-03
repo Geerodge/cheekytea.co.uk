@@ -6,19 +6,16 @@ const SiteNoticeStyles = styled.div`
         list-style: none;
         overflow: hidden;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         align-items: center;
         text-align: center;
         margin: 15px 0 15px 0;
         li {
-            padding: 1rem;
+            padding: 2rem;
         }
         li:nth-child(1) {
-            border-right: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
         } 
-        li:nth-child(2) {
-            border-left: 1px solid #f0f0f0;
-        }
         h5 {
             color: var(--green);
             font-weight: bold;
@@ -27,6 +24,19 @@ const SiteNoticeStyles = styled.div`
         p {
             font-size: 1.75rem;
             margin: 5px;
+        }
+    }
+
+    @media only screen and (min-width: 600px) {
+        ul {
+            grid-template-columns: 1fr 1fr;
+            li:nth-child(1) {
+                border-bottom: 0;
+                border-right: 1px solid #f0f0f0;
+            }
+            li:nth-child(2) {
+                border-left: 1px solid #f0f0f0;
+            }
         }
     }
 `;

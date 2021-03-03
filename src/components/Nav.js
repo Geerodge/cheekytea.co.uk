@@ -14,7 +14,9 @@ export default function Nav() {
     return (
     <NavStyles>
         <nav>
-            <Link to="/" className="logo-nav"><img src={logo} alt="logo" id="logo"/></Link>
+            <div class="outer-wrapper">
+                <Link to="/" className="logo-nav"><img src={logo} alt="logo" id="logo"/></Link>
+            </div>
             <input className="menu-btn" type="checkbox" id="menu-btn" checked={checked} onChange={toggleMenu} />
             <label className="menu-icon" for="menu-btn"><span className="navicon"></span></label>
             <ul className="menu" onClick={toggleMenu}>
