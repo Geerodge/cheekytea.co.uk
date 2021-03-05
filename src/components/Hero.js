@@ -20,26 +20,17 @@ const HeroStyles = styled.div`
             z-index: 1;
         }
         h1 {
-            font-weight: bold;
             background: rgba(89, 155, 68, 0.6);
             padding: 0.5rem;
         }
         p {
-            font-size: 3rem;
-            font-weight: bold;
+            font-size: 2.5rem;
+            line-height: 1.65;
         }
         span {
             background: rgba(89, 155, 68, 0.6);
             padding: 0.5rem;
         }
-        /* button {
-            background-color: var(--white);
-            color: var(--black);
-            &:hover {
-                background: var(--green);
-                color: var(--white);
-            }
-        } */
     }
     .gatsby-image-wrapper {
         object-fit: cover;
@@ -50,6 +41,7 @@ const HeroStyles = styled.div`
     .glow {
         color: var(--white);
         text-shadow: 1px 1px 0px #fff, 2px 2px 1px rgba(0,0,0,0.70);
+        margin: 10px;
     }
     a.button {
         display: inline-block;
@@ -62,17 +54,67 @@ const HeroStyles = styled.div`
         font-weight:500;
         color:#FFFFFF;
         transition: all 0.2s;
+        width: 60%;
         &:hover{
             color:#000000;
             background-color:#FFFFFF;
         }
     }
-    @media all and (max-width:30em) {
-    a.button{
-        display:block;
-        margin:0.4em auto;
+    @media all and (max-width: 30em) {
+        header {
+            a.button {
+                display: block;
+                margin: 0.4em auto;
+            }
         }
-    } 
+    }
+
+    @media only screen and (min-width: 480px) {
+        header {
+            p span {
+                padding: 0.45rem;
+            }
+            a.button {
+                width: 50%;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 600px) {
+        header {
+            p {
+                font-size: 3rem;
+            }
+            p span {
+                padding: 0.55rem;
+            }
+            a.button {
+                width: 35%;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 992px) {
+        header {
+            a.button {
+                width: 25%;
+            }
+        }
+        .glow {
+            margin: 50px;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        header {
+            a.button {
+                width: 15%;
+            }
+        }
+        .glow {
+            margin: 70px;
+        }
+    }
 `;
 
 export default function Hero(props) {
