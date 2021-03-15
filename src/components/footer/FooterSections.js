@@ -6,17 +6,16 @@ import { HiOutlineMail } from "react-icons/hi"
 
 const FooterStyles = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr;
     div {
-        margin: 40px;
+        margin: 20px;
     }
     h3 {
         text-transform: uppercase;
     }
     ul {
         list-style: none;
-        line-height: 3rem;
+        line-height: 4rem;
         margin-top: 20px;
     }
     a {
@@ -28,6 +27,20 @@ const FooterStyles = styled.div`
           cursor: pointer;
           transition: all 0.2s ease-in-out;
       }
+    }
+    @media only screen and (min-width: 700px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        div {
+            margin: 25px;
+        }
+    }
+    @media only screen and (min-width: 900px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1rem;
+        div {
+            margin: 20px;
+        }
     }
 `;
 

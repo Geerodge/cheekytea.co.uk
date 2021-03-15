@@ -41,7 +41,7 @@ const HeroStyles = styled.div`
     .glow {
         color: var(--white);
         text-shadow: 1px 1px 0px #fff, 2px 2px 1px rgba(0,0,0,0.70);
-        margin: 10px;
+        margin: 30px 10px;
     }
     a.button {
         display: inline-block;
@@ -77,6 +77,9 @@ const HeroStyles = styled.div`
             a.button {
                 width: 50%;
             }
+        }
+        .glow {
+            margin: 50px 10px;
         }
     }
 
