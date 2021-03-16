@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Hero from "../components/Hero";
+import Img from "gatsby-image";
 import { graphql, Link } from "gatsby";
 import { FaRecycle } from "react-icons/fa";
 import { BiDonateHeart } from "react-icons/bi";
@@ -10,6 +11,7 @@ import { FaLeaf } from "react-icons/fa";
 import { GoPackage } from "react-icons/go";
 
 const AboutStyles = styled.div`
+
     text-align: center;
     margin-top: 50px;
     hr {
@@ -17,101 +19,129 @@ const AboutStyles = styled.div`
         margin-top: 50px;
         margin-bottom: 50px;
     }
-    h1 {
-        width: 50%;
-        margin: 0 auto;
-    }
     .react-icons {
         vertical-align: middle;
         margin-bottom: 10px;
     }
+
     .grid-container {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 2rem;
-        grid-template-areas:
-            "section1 section1"
-            "section2 section3"
-            "section4 section4"
-            "section5 section6"
-            "section7 section8";
-    }
-    .section1 { 
-        grid-area: section1;
-        place-self: center;
         text-align: left;
-        padding: 0 50px;
+        margin-top: 50px;
         h2 {
             display: inline;
             padding-right: 10px;
         }
-    }
-    .section2 { 
-        grid-area: section2;
-    }
-    .section3 { 
-        grid-area: section3;
-        text-align: left;
-        padding: 0 50px;
-        h2 {
-            display: inline;
-            padding-right: 10px;
-        }
-    }
-    .section4 { 
-        grid-area: section4;
-        place-self: center;
-        width: 75%;
-        h2 {
-            padding-top: 10px;
-        }
-        hr:first-child {
-            margin-top: 25px;
-        }
-    }
-    .section5 { 
-        grid-area: section5;
-        text-align: left;
-        padding: 50px;
         ul {
-            margin-left: 20px;
-        }
-        h2 {
-            display: inline;
-            padding-right: 10px;
+            padding: 0 50px;
         }
     }
-    .section6 { 
-        grid-area: section6;
-        text-align: left;
-        padding: 50px;
-        place-self: center;
-    }
-    .section7 { 
-        grid-area: section7;
-        text-align: left;
-        padding: 50px;
-        h2 {
-            display: inline;
-            padding-right: 10px;
-        }
-    }
-    .section8 { 
-        grid-area: section8;
-        text-align: left;
-        padding: 50px;
-        h2 {
-            display: inline;
-            padding-right: 10px;
-        }
-        li {
-            padding: 10px;
-        }
-        img {
+
+
+    /* @media only screen and (min-width: 1200px) {
+
+        hr {
+            width: 70%;
             margin-top: 50px;
+            margin-bottom: 50px;
         }
-    }
+        h1 {
+            margin: 0 auto;
+        }
+        .react-icons {
+            vertical-align: middle;
+            margin-bottom: 10px;
+        }
+
+        .grid-container {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 2rem;
+            grid-template-areas:
+                "section1 section1"
+                "section2 section3"
+                "section4 section4"
+                "section5 section6"
+                "section7 section8";
+        }
+        .section1 { 
+            grid-area: section1;
+            place-self: center;
+            text-align: left;
+            padding: 0 50px;
+            h2 {
+                display: inline;
+                padding-right: 10px;
+            }
+        }
+        .section2 { 
+            grid-area: section2;
+        }
+        .section3 { 
+            grid-area: section3;
+            text-align: left;
+            padding: 0 50px;
+            h2 {
+                display: inline;
+                padding-right: 10px;
+            }
+        }
+        .section4 { 
+            grid-area: section4;
+            place-self: center;
+            width: 75%;
+            h2 {
+                padding-top: 10px;
+            }
+            hr:first-child {
+                margin-top: 25px;
+            }
+        }
+        .section5 { 
+            grid-area: section5;
+            text-align: left;
+            padding: 50px;
+            ul {
+                margin-left: 20px;
+            }
+            h2 {
+                display: inline;
+                padding-right: 10px;
+            }
+        }
+        .section6 { 
+            grid-area: section6;
+            text-align: left;
+            padding: 50px;
+            place-self: center;
+        }
+        .section7 { 
+            grid-area: section7;
+            text-align: left;
+            padding: 50px;
+            h2 {
+                display: inline;
+                padding-right: 10px;
+            }
+        }
+        .section8 { 
+            grid-area: section8;
+            text-align: left;
+            padding: 50px;
+            h2 {
+                display: inline;
+                padding-right: 10px;
+            }
+            li {
+                padding: 10px;
+            }
+            img {
+                margin-top: 50px;
+            }
+        }
+    } */
 `;
 
 export default function AboutPage(props) {
@@ -138,7 +168,8 @@ export default function AboutPage(props) {
                         <p><Link to="/shop">Visit our tea shop now</Link> and grab yourself a cheeky cuppa!</p>
                     </div>
                     <div className="section2">
-                        <img alt="George McEntegart" src="https://cheekytea.co.uk/wp-content/uploads/2019/02/girl-drinking-tea-1024x681.jpg" max-width="100%" width="500" />
+                        <Img fluid="../src/assets/images/tea-drinking.jpg" alt="Drinking Tea" />
+                        {/* Add this to graphql */}
                     </div>
                     <div className="section3">
                         <h2>Making Time for You</h2><BiTimeFive size={32} className="react-icons" />
@@ -165,7 +196,7 @@ export default function AboutPage(props) {
                         </ul>
                     </div>
                     <div className="section6">
-                        <img src="https://cheekytea.co.uk/wp-content/uploads/2020/04/sustainably-sourced-1024x682.jpg" max-width="100%" width="500" />
+                        {/* <img src="https://cheekytea.co.uk/wp-content/uploads/2020/04/sustainably-sourced-1024x682.jpg" max-width="100%" width="500" /> */}
                     </div>
                     <div className="section7">
                         <h2>Packaging and Environmental Impact</h2><FaLeaf size={32} className="react-icons" />
@@ -185,7 +216,7 @@ export default function AboutPage(props) {
                             <li><strong>Sustainable materials that are easy to dispose of responsibly:</strong> where possible we use Forest Stewardship Council (FSC) and the Programme for the Endorsement of Forest Certification (PEFC) approved materials. These indicate that the materials are responsibly sourced and 100% recyclable.</li>
                             <li><strong>Less packaging:</strong> we make the right choices to eliminate (or at least, significantly reduce) the need for filler.</li>
                         </ul>
-                        <img src="https://cheekytea.co.uk/wp-content/uploads/2019/02/organic-salsa-soil-1024x273.jpg" max-width="100%" width="700" />
+                        {/* <img src="https://cheekytea.co.uk/wp-content/uploads/2019/02/organic-salsa-soil-1024x273.jpg" max-width="100%" width="700" /> */}
                     </div>
                 </div>
             </AboutStyles>
