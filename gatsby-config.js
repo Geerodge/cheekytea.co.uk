@@ -9,9 +9,12 @@ module.exports = {
         description: 'Improve your wellbeing and help protect the planet with our loose leaf tea.',
     },
     plugins: [
-        'gatsby-plugin-postcss',
-        'gatsby-plugin-react-helmet',
-        "gatsby-image",
+        `gatsby-plugin-postcss`,
+        `gatsby-plugin-react-helmet`,
+        `gatsby-image`,
+        `gatsby-plugin-image`,
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`, // Needed for dynamic images
         {
             // Name of plugin adding
             resolve: 'gatsby-source-sanity',
@@ -24,6 +27,7 @@ module.exports = {
         }
     ],
 };
+
 
 // SANITY_PROJECT_ID=p410jtyo
 // SANITY_DATASET=production

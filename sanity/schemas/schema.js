@@ -15,6 +15,7 @@ import teabox from "./teabox";
 import weight from "./weight";
 import faq from "./faq";
 
+
 export default createSchema({
   // We name our schema
   name: 'default',

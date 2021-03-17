@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Hero from "../components/Hero";
-import Img from "gatsby-image";
 import { graphql, Link } from "gatsby";
 import { FaRecycle } from "react-icons/fa";
 import { BiDonateHeart } from "react-icons/bi";
@@ -9,6 +8,7 @@ import { GiTeapotLeaves } from "react-icons/gi";
 import { BiTimeFive } from "react-icons/bi";
 import { FaLeaf } from "react-icons/fa";
 import { GoPackage } from "react-icons/go";
+import { StaticImage } from "gatsby-plugin-image"
 
 const AboutStyles = styled.div`
 
@@ -144,6 +144,7 @@ const AboutStyles = styled.div`
     } */
 `;
 
+// Need to add the below stuff to Sanity and pull in via GraphQL
 export default function AboutPage(props) {
     const heroImage = props.data.heroimages.nodes;
     return (
@@ -168,8 +169,7 @@ export default function AboutPage(props) {
                         <p><Link to="/shop">Visit our tea shop now</Link> and grab yourself a cheeky cuppa!</p>
                     </div>
                     <div className="section2">
-                        <Img fluid="../src/assets/images/tea-drinking.jpg" alt="Drinking Tea" />
-                        {/* Add this to graphql */}
+                    <StaticImage src="../assets/images/tea-drinking.jpg" alt="Drinking Tea" />
                     </div>
                     <div className="section3">
                         <h2>Making Time for You</h2><BiTimeFive size={32} className="react-icons" />
@@ -196,7 +196,7 @@ export default function AboutPage(props) {
                         </ul>
                     </div>
                     <div className="section6">
-                        {/* <img src="https://cheekytea.co.uk/wp-content/uploads/2020/04/sustainably-sourced-1024x682.jpg" max-width="100%" width="500" /> */}
+                        <StaticImage src="../assets/images/sustainably-sourced-tea.jpg" alt="Sustainably Sourced Tea" />
                     </div>
                     <div className="section7">
                         <h2>Packaging and Environmental Impact</h2><FaLeaf size={32} className="react-icons" />
@@ -216,7 +216,7 @@ export default function AboutPage(props) {
                             <li><strong>Sustainable materials that are easy to dispose of responsibly:</strong> where possible we use Forest Stewardship Council (FSC) and the Programme for the Endorsement of Forest Certification (PEFC) approved materials. These indicate that the materials are responsibly sourced and 100% recyclable.</li>
                             <li><strong>Less packaging:</strong> we make the right choices to eliminate (or at least, significantly reduce) the need for filler.</li>
                         </ul>
-                        {/* <img src="https://cheekytea.co.uk/wp-content/uploads/2019/02/organic-salsa-soil-1024x273.jpg" max-width="100%" width="700" /> */}
+                        <StaticImage src="../assets/images/organic-salsa-soil.jpg" alt="Organic SALSA Soil" />
                     </div>
                 </div>
             </AboutStyles>
