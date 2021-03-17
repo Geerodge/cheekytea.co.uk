@@ -28,73 +28,73 @@ const AboutStyles = styled.div`
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
-        text-align: left;
         margin-top: 50px;
+        p {
+            text-align: left;
+        }
         h2 {
             display: inline;
             padding-right: 10px;
         }
         ul {
-            padding: 0 50px;
+            text-align: left;
+            padding: 0 0 0 25px;
         }
     }
 
+    .section2, .section6 {
+        margin: 25px 0;
+    }
 
-    /* @media only screen and (min-width: 1200px) {
+    .section4 {
+        .react-icons {
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+        h2 {
+            text-align: center!important;
+        }
+    }
 
-        hr {
-            width: 70%;
-            margin-top: 50px;
+    .section8 {
+        ul {
             margin-bottom: 50px;
         }
-        h1 {
-            margin: 0 auto;
-        }
-        .react-icons {
-            vertical-align: middle;
-            margin-bottom: 10px;
-        }
+    }
 
+    @media only screen and (min-width: 900px) {
         .grid-container {
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
             gap: 2rem;
             grid-template-areas:
                 "section1 section1"
-                "section2 section3"
+                "section3 section2"
                 "section4 section4"
                 "section5 section6"
-                "section7 section8";
+                "section7 section7"
+                "section8 section8"
+                "section9 section9";
         }
         .section1 { 
             grid-area: section1;
-            place-self: center;
             text-align: left;
-            padding: 0 50px;
-            h2 {
-                display: inline;
-                padding-right: 10px;
-            }
+            margin-bottom: 20px;
+            padding: 15px;
         }
         .section2 { 
             grid-area: section2;
+            place-self: center;
+            padding: 15px;
         }
         .section3 { 
             grid-area: section3;
-            text-align: left;
-            padding: 0 50px;
-            h2 {
-                display: inline;
-                padding-right: 10px;
-            }
+            padding: 15px;
         }
         .section4 { 
             grid-area: section4;
             place-self: center;
-            width: 75%;
-            h2 {
-                padding-top: 10px;
-            }
+            width: 85%;
+            padding: 15px;
             hr:first-child {
                 margin-top: 25px;
             }
@@ -102,46 +102,37 @@ const AboutStyles = styled.div`
         .section5 { 
             grid-area: section5;
             text-align: left;
-            padding: 50px;
-            ul {
-                margin-left: 20px;
-            }
-            h2 {
-                display: inline;
-                padding-right: 10px;
-            }
+            padding: 15px;
         }
         .section6 { 
             grid-area: section6;
-            text-align: left;
-            padding: 50px;
             place-self: center;
+            padding: 15px;
         }
         .section7 { 
             grid-area: section7;
-            text-align: left;
-            padding: 50px;
-            h2 {
-                display: inline;
-                padding-right: 10px;
-            }
+            padding: 15px;
         }
         .section8 { 
             grid-area: section8;
-            text-align: left;
-            padding: 50px;
-            h2 {
-                display: inline;
-                padding-right: 10px;
-            }
-            li {
-                padding: 10px;
-            }
-            img {
-                margin-top: 50px;
-            }
+            padding: 15px;
         }
-    } */
+        .section9 {
+            grid-area: section9;
+            padding: 15px;
+        }
+
+        h1.glow  {
+            max-width: 25%;
+            margin: 0 auto;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .section5 { 
+            place-self: center;
+        }
+    }
 `;
 
 // Need to add the below stuff to Sanity and pull in via GraphQL
@@ -169,7 +160,7 @@ export default function AboutPage(props) {
                         <p><Link to="/shop">Visit our tea shop now</Link> and grab yourself a cheeky cuppa!</p>
                     </div>
                     <div className="section2">
-                    <StaticImage src="../assets/images/tea-drinking.jpg" alt="Drinking Tea" />
+                    <StaticImage src="../assets/images/tea-drinking.jpg" alt="Drinking Tea" placeholder="blurred" />
                     </div>
                     <div className="section3">
                         <h2>Making Time for You</h2><BiTimeFive size={32} className="react-icons" />
@@ -196,7 +187,7 @@ export default function AboutPage(props) {
                         </ul>
                     </div>
                     <div className="section6">
-                        <StaticImage src="../assets/images/sustainably-sourced-tea.jpg" alt="Sustainably Sourced Tea" />
+                        <StaticImage src="../assets/images/sustainably-sourced-tea.jpg" alt="Sustainably Sourced Tea" placeholder="blurred" />
                     </div>
                     <div className="section7">
                         <h2>Packaging and Environmental Impact</h2><FaLeaf size={32} className="react-icons" />
@@ -205,7 +196,8 @@ export default function AboutPage(props) {
                         <p>The pouches for our loose leaf tea provide excellent barrier properties against water vapour and oxygen. This makes them the preferred packaging option for a wide range of industries where product freshness and shelf life are a priority, and our laminates are all FDA food grade approved.</p>
                         <p>Due to the resealable nature of the pouches, they offer a number of convenient advantages and helps promote product freshness by providing an air tight seal.</p>
                         <p>There is also no need to decant our tea into alternative containers, as it can be stored for any length of time in the pouches.</p>
-                        <p>Our pouches also offer a variety of economic and environmental advantages compared to rigid formats of packaging. They are cheaper and less polluting to manufacture, transport and store. Due to their resealable nature they are also reusable.</p>
+                        <p>Our pouches also offer a variety of economic and environmental advantages compared to rigid formats of packaging. They are cheaper and less polluting to manufacture, transport and store.</p>
+                        <p>Due to their resealable nature they are also reusable.</p>
                     </div>
                     <div className="section8">
                         <h2>Sustainable Packaging Strategy</h2><GoPackage size={32} className="react-icons" />
@@ -216,7 +208,9 @@ export default function AboutPage(props) {
                             <li><strong>Sustainable materials that are easy to dispose of responsibly:</strong> where possible we use Forest Stewardship Council (FSC) and the Programme for the Endorsement of Forest Certification (PEFC) approved materials. These indicate that the materials are responsibly sourced and 100% recyclable.</li>
                             <li><strong>Less packaging:</strong> we make the right choices to eliminate (or at least, significantly reduce) the need for filler.</li>
                         </ul>
-                        <StaticImage src="../assets/images/organic-salsa-soil.jpg" alt="Organic SALSA Soil" />
+                    </div>
+                    <div className="section9">
+                        <StaticImage src="../assets/images/organic-salsa-soil.jpg" alt="Organic SALSA Soil" placeholder="blurred" />
                     </div>
                 </div>
             </AboutStyles>

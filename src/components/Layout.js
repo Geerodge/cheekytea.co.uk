@@ -16,6 +16,7 @@ const SiteBorderStyles = styled.div`
     padding: clamp(5px, 1vw, 10px);
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.044);
     border: 5px solid white;
+    margin: 75px auto;
 `;
 
 const ContentStyles = styled.div`
@@ -38,4 +39,4 @@ export default function Layout({ children }) {
             </SiteBorderStyles>
         </>
     )
-    }
+}
