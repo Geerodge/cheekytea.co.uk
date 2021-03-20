@@ -1,5 +1,5 @@
 require("dotenv").config({
-    path: `.env.${process.env.NODE_ENV}`,
+    path: `.env`,
   });
 
 module.exports = {
@@ -14,9 +14,8 @@ module.exports = {
         `gatsby-image`,
         `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
-        `gatsby-transformer-sharp`, // Needed for dynamic images
+        `gatsby-transformer-sharp`,
         {
-            // Name of plugin adding
             resolve: 'gatsby-source-sanity',
             options: {
                 projectId: 'p410jtyo',
@@ -24,35 +23,17 @@ module.exports = {
                 token: process.env.SANITY_TOKEN,
                 watchMode: true,
             },
-        }
+        },
+        {
+            resolve: `gatsby-plugin-snipcart-advanced`,
+            options: {
+                version: "3.0.29",
+                publicApiKey: process.env.GATSBY_SNIPCART_API_KEY,
+                defaultLang: "en-GB",
+                currency: "GBP",
+                openCartOnAdd: false,
+                useSideCart: true,
+            },
+        },
     ],
 };
-
-
-// SANITY_PROJECT_ID=p410jtyo
-// SANITY_DATASET=production
-
-// import dotenv from 'dotenv';
-
-// dotenv.config({ path: '.env' });
-
-// export default {
-//         siteMetadata: {
-//         title: 'Cheeky Tea',
-//         siteUrl: 'https://cheekytea.co.uk',
-//         description: 'Improve your wellbeing and help protect the planet with our loose leaf tea.',
-//         },
-//         plugins: [
-//             'gatsby-plugin-styled-components', 
-//             {
-//                 // Name of plugin adding
-//                 resolve: 'gatsby-source-sanity',
-//                 options: {
-//                     projectId: 'p410jtyo',
-//                     dataset: 'production',
-//                     token: process.env.SANITY_TOKEN,
-//                     watchMode: true,
-//                 }
-//             }
-//         ],
-// };

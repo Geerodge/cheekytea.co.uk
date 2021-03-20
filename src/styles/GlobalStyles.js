@@ -32,7 +32,6 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 2px;
     background-color: var(--green);
     color: var(--white);
-    font-weight: bold;
     text-transform: uppercase;
     /* text-shadow: rgba(0, 0, 0, 0.2) 0.5px 0.5px 0px; */
     &:hover {
