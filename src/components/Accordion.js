@@ -9,8 +9,7 @@ const AccordionStyles = styled.div`
     }
     .accordion {
         cursor: pointer;
-        width: 70%;
-        margin: 0 auto;
+        margin: 15px auto;
     }
     .accordion-header {
         padding: 10px;
@@ -21,14 +20,27 @@ const AccordionStyles = styled.div`
     p {
         margin-left: 35px;
     }
+
+    @media only screen and (min-width: 750px) {
+        .accordion {
+            width: 70%;
+        }
+    }
 `;
 
-function SingleAccordion({ faqs }) {
+function SingleAccordion({ faqs, index }) {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
             <div className="accordion">
-                <div onClick={() => setIsOpen(!isOpen)} className="accordion-header">
+                <div
+                    onClick={() => setIsOpen(!isOpen)}
+                    onKeyDown={() => setIsOpen(!isOpen)}
+                    className="accordion-header"
+                    role="button"
+                    aria-pressed="false"
+                    tabIndex={index}
+                >
                     {isOpen ? <FiChevronDown /> : <FiChevronRight />}<h2>{faqs.question}</h2>
                 </div>
                 {isOpen && (
@@ -43,14 +55,13 @@ function SingleAccordion({ faqs }) {
     )
 }
 
-export default function Accordion({ faqs }) {  
+export default function Accordion({ faqs }) {
     return (
         <>
             <AccordionStyles>
-                {faqs.map((faqs) =>
-                    <SingleAccordion key={faqs.id} faqs={faqs} />
+                {faqs.map((faqs, index) =>
+                    <SingleAccordion key={faqs.id} faqs={faqs} index={index} />
                 )}
             </AccordionStyles>
         </>
-    );
-}
+    )}

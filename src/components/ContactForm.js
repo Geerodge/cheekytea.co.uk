@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const ContactFormStyles = styled.div`
     form {
-        width: 85%;
         margin: 0 auto;
+        text-align: left;
         input, textarea {
             min-height: 40px;
             margin-bottom: 20px;

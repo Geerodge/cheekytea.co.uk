@@ -19,7 +19,7 @@ export default function Nav() {
             </div>
             <input className="menu-btn" type="checkbox" id="menu-btn" checked={checked} onChange={toggleMenu} />
             <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
-            <ul className="menu" onClick={toggleMenu}>
+            <ul className="menu" onClick={toggleMenu} onKeyDown={toggleMenu} role="button">
                 <li>
                     <Link to="/about">About</Link>
                 </li>

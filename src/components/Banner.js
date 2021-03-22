@@ -66,7 +66,6 @@ const BannerStyles = styled.div`
 
 
 export default function Banner() {
-    const bannerIcon = "32";
     return (
         <BannerStyles>
             <div>
