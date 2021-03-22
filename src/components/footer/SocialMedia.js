@@ -48,11 +48,11 @@ export default function SocialIcons(props) {
                         <PinterestIcon size={props.size} />
                     </a>
                 </li>
-                <li>
+                {/* <li>
                     <a href="https://tinyletter.com/CheekyTea" target="_blank" rel="noreferrer">
                         <EmailIcon size={props.size} />
                     </a>
-                </li>
+                </li> */}
             </ul>
         </SocialStyles>
     )
