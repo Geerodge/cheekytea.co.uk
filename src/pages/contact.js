@@ -14,6 +14,7 @@ const ContactStyles = styled.div`
     }
     .contact-information {
         text-align: left;
+        padding-bottom: 30px;
     }
     .phone-mail {
         display: grid;
@@ -33,6 +34,7 @@ const ContactStyles = styled.div`
             max-width: 70%;
             margin: 25px auto 100px auto;
         }
+        
     }
     @media only screen and (min-width: 700px) {
         .contact-information {
@@ -66,6 +68,7 @@ const ContactStyles = styled.div`
         }
         .contact-information {
             max-width: 80%;
+            padding-top: 60px;
         }
         h2 {
             margin-top: 0px;
@@ -89,10 +92,6 @@ export default function ContactPage() {
                         <p>We'll respond within 4 to 5 business days Monday to Friday, but generally faster.</p>
                         <p>For general enquiries please email <a href="mailto:hello@cheekytea.co.uk">hello@cheekytea.co.uk</a>.</p>
                         <p>For new and existing customer orders, or order issues please email <a href="mailto:orders@cheekytea.co.uk">orders@cheekytea.co.uk</a>.</p>
-                        <div class="phone-mail">
-                            <p><MdLocalPostOffice style={{ color: "var(--black)" }} /><br /> 93 Barley Leaze,<br /> Chippenham<br /> SN14 6GW</p>
-                            <p><FaPhoneAlt style={{ color: "var(--black)" }}/><br />Freephone<br /> 0800 292 6064</p>
-                        </div>
                     </div>
                     <div>
                         <h2>Contact Form</h2>
