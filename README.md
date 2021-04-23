@@ -6,6 +6,4 @@
 
 ## Website Overview
 
-**Create a Gatsby site.**
-
-    Built with Gatsby and Sanity, using Snipcart for Ecommerce. 
+    Built with Gatsby and Sanity, using Snipcart for Ecommerce.
