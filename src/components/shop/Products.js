@@ -53,7 +53,7 @@ function SingleTea({ teas }) {
             <Link className="product-heading-link" to={`/shop/${teas.slug.current}`}>
                 <h2>{teas.name}</h2>
             </Link>
-            <p>{formatMoney(teas.price / 100) + ' inc VAT'}</p>
+            <p>from {formatMoney(teas.price / 100) + ' inc VAT'}</p>
             {/* <p className="tea-description">{teas.short_description.substring(0, 200)}</p> */}
             <button>Add to basket</button>
         </SingleProductStyles>
