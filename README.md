@@ -12,6 +12,10 @@ What things you need to install the software and how to install them
 
 ```
 Built with Gatsby and Sanity, using Snipcart for Ecommerce.
+*Gatsby v2.26.1
+*React v16.13.1
+*Sanity v2.1.6
+*Express.js v4.17.1
 ```
 
 ### Installing
