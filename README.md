@@ -1,6 +1,6 @@
 # Cheeky Tea
 
-The website for [Cheeky Tea Ltd](https://cheekytea.co.uk/)
+The website for Cheeky Tea Ltd, a small tea business. Visit [cheekytea.co.uk](https://cheekytea.co.uk/).
 
 ## Getting Started
 
