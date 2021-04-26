@@ -1,6 +1,6 @@
 # Cheeky Tea
 
-The website for a tea business I run.
+The website for [Cheeky Tea Ltd](https://cheekytea.co.uk/)
 
 ## Getting Started
 
@@ -8,13 +8,14 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-```
+You will need to install the following applications and versions.
+
 *Gatsby v2.26.1
 *React v16.13.1
 *Sanity v2.1.6
 *Node.js v15.5.0
 *Express.js v4.17.1
-```
+
 
 ### Installing
 
