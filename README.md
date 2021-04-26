@@ -8,13 +8,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
 ```
-Built with Gatsby and Sanity, using Snipcart for Ecommerce.
 *Gatsby v2.26.1
 *React v16.13.1
 *Sanity v2.1.6
+*Node.js v15.5.0
 *Express.js v4.17.1
 ```
 
@@ -36,25 +34,6 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
@@ -62,23 +41,17 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+Built using React, Gatsby and Sanity, with Snipcart for Ecommerce/shopping cart.
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Gatsby](https://www.gatsbyjs.com/) - The web framework used
+* [Reactjs](https://reactjs.org/) - JavaScript library
+* [Sanity](https://www.sanity.io/) - Content Management System
+* [npm](https://www.npmjs.com/) - Dependency Management
+* [Snipcart](https://snipcart.com/) - Shopping Cart Platform
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **George McEntegart** - [Website](https://georgemc.net/)
 
 ## License
 
