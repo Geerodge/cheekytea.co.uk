@@ -5,7 +5,8 @@ import Img from "gatsby-image";
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTea } }) {
     const teaProduct = allSanityTea.edges[0].node;
-    console.log(allSanityTea.edges[0].node);
+
+    console.log(teaProduct);
 
     return (
       <div>
