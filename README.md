@@ -18,7 +18,7 @@ You will need to install the following applications and versions.
 
 You will also need an API key from Snipcart. This needs to be added an .env file in the root directory.
 
-You can get this from [their website](https://snipcart.com/) by creating a free account.
+You can get this from [their website](https://snipcart.com/) by creating a free account. Check out their [documentation here](https://docs.snipcart.com/v3/).
 
 
 ### Installing
