@@ -16,10 +16,14 @@ You will need to install the following applications and versions.
 * Node.js v15.5.0
 * Express.js v4.17.1
 
+You will also need an API key from Snipcart. This needs to be added an .env file in the root directory.
+
+You can get this from [their website](https://snipcart.com/) by creating a free account. Check out their [documentation here](https://docs.snipcart.com/v3/).
+
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+A step by step series of examples that tell you how to get a development environment running
 
 Clone the repository
 
