@@ -20,6 +20,8 @@ export default function SingleProductPage({ pageContext: { page, slug, type }, p
     )
 }
 
+// Need to recreate the product page (https://cheekytea.co.uk/teashop/loose-tea/darjeeling-earl-grey/)
+
 // This is dynamic based on the id passed in via context in gatsby-node.js
 export const query = graphql`
 query($page: String!) {
