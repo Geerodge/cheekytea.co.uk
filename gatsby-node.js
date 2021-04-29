@@ -40,12 +40,14 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     `);
     // Page template paths
-    const productTemplate = path.resolve(`src/templates/SingleProduct.js`)
+    const productTea = path.resolve(`src/templates/SingleTea.js`)
+    const productAccessory = path.resolve(`src/templates/SingleAccessory.js`)
+    const productBox = path.resolve(`src/templates/SingleBox.js`)
     // Create tea product pages
     queryTeas.data.teas.nodes.forEach(node => {
         createPage({
         path: `/shop/${node.slug.current}`,
-        component: productTemplate,
+        component: productTea,
         context: {
             // The entire product is passed down as context
             slug: node.slug.current,
@@ -57,7 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
     queryAccessories.data.accessories.nodes.forEach(node => {
         createPage({
         path: `/shop/${node.slug.current}`,
-        component: productTemplate,
+        component: productAccessory,
         context: {
             // The entire product is passed down as context
             slug: node.slug.current,
@@ -69,7 +71,7 @@ exports.createPages = async ({ graphql, actions }) => {
     queryTeabox.data.teabox.nodes.forEach(node => {
         createPage({
         path: `/shop/${node.slug.current}`,
-        component: productTemplate,
+        component: productBox,
         context: {
             // The entire product is passed down as context
             slug: node.slug.current,

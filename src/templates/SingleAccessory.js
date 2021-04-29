@@ -3,18 +3,19 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 
 // Product data is passed in via context in gatsby-node.js
-export default function SingleProductPage({ pageContext: { page, slug, type }, props }) {
-    // const pageId = page.id
-    // const product = props.data.product.nodes;
-    // console.log(pageId);
-    console.log(page);
-    console.log(slug);
-    console.log(type);
+export default function SingleProductPage({ pageContext: { page }, data: { allSanityTea, allSanityTeaAccessories, allSanityTeaBox } }) {
+    
+    const teaProduct = allSanityTea.edges[0].node;
+    // const teaAccessory = allSanityTeaAccessories.edges[0].node;
+    // const teaBox = allSanityTeaBox.edges[0].node;
+
+    console.log(allSanityTea.edges[0].node);
+
     return (
       <div>
-        <p>Single Product!!</p>
+        <h1>{page}</h1>
         ID: 
-        Slug: {type}
+        Slug: {}
         {/* <Img fluid={product.} /> */}
       </div>
     )
