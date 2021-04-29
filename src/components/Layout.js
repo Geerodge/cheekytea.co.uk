@@ -17,7 +17,7 @@ const SiteBorderStyles = styled.div`
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.044);
     border: 5px solid white;
 
-    @media only screen and (min-width: 1500px) {
+    @media only screen and (min-width: 1824px) {
         margin: 75px auto;
     }
 `;
