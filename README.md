@@ -21,16 +21,16 @@ You will need to install the following applications and versions.
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+Clone the repository
 
 ```
-Give the example
+git clone https://github.com/Geerodge/cheekytea.co.uk.git
 ```
 
-And repeat
+Install all the required packages
 
 ```
-until finished
+npm install
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
