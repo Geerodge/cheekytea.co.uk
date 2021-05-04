@@ -9,6 +9,12 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
 
     console.log(teaBox);
 
+    // Makes the price of each product look nice
+    const formatMoney = Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP',
+    }).format;
+
     return (
       <div>
         <h1>{page}</h1>

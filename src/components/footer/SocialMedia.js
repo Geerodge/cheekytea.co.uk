@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { FaFacebookSquare as FacebookIcon, FaInstagram as InstagramIcon, FaTwitterSquare as TwitterIcon, FaPinterestSquare as PinterestIcon } from "react-icons/fa";
-import { MdEmail as EmailIcon } from "react-icons/md";
 
 
 const SocialStyles = styled.div`

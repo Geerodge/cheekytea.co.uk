@@ -9,6 +9,12 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
 
     console.log(teaAccessory);
 
+    // Makes the price of each product look nice
+    const formatMoney = Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP',
+    }).format;
+
     return (
       <div>
         <h1>{page}</h1>
@@ -23,6 +29,7 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
 
 // This is dynamic based on the id passed in via context in gatsby-node.js
 export const query = graphql`
+query($page: String!) {
     allSanityTeaAccessories(filter: {_id: {eq: $page}}) {
         edges {
             node {

@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import ContactForm from "../components/ContactForm";
-import { FaPhoneAlt } from "react-icons/fa";
-import { MdLocalPostOffice } from "react-icons/md";
 
 const ContactStyles = styled.div`
     text-align: center;
