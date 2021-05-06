@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
+
+// Need to recreate the product page (https://cheekytea.co.uk/teashop/loose-tea/darjeeling-earl-grey/)
+
+// Need to put the product information bit into a component
+
+
+
 
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTea } }) {
@@ -18,6 +25,17 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
         return text.split('\n\n').map((item, i) => <p key={i}>{item}</p>);
     }
 
+    // Counter for product quantity
+    const [count, setCount] = useState(1);
+    function increase() {
+        setCount(count + 1);
+    }
+    function decrease() {
+        if(count > 1) {
+            setCount(count - 1);
+        }
+    }
+
     return (
       <div>
         <h1>{teaProduct.name}</h1>
@@ -31,12 +49,20 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
         <h2>Ingredients</h2>
         <p>{teaProduct.ingredients}</p>
         <h2>Allergy Information</h2>
-        <p>{teaProduct.allergy ? `Dairy free, gluten free, suitable for vegetarians and vegans. Packed in a factory which handles nuts.` : ``}</p> 
+        <p>{teaProduct.allergy ? `Dairy free, gluten free, suitable for vegetarians and vegans. Packed in a factory which handles nuts.` : ``}</p>
+        <select >
+            <option disabled hidden selected>Select Size</option>
+            {teaProduct.tea_weight.map((productSize,i) => (
+                <option key={i} value={productSize.weight}>{productSize.name}</option>))}
+        </select>
+        <div className="quantity-container">
+            <button type="button" onClick={decrease}>-</button>
+            <input type="number" name="quantity" value={count} />
+            <button type="button" onClick={increase}>+</button>
+        </div>
       </div>
     )
 }
-
-// Need to recreate the product page (https://cheekytea.co.uk/teashop/loose-tea/darjeeling-earl-grey/)
 
 // This is dynamic based on the id passed in via context in gatsby-node.js
 export const query = graphql`
