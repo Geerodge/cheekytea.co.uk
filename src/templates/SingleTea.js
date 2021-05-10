@@ -1,66 +1,97 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
+import styled from "styled-components";
 
-// Need to recreate the product page (https://cheekytea.co.uk/teashop/loose-tea/darjeeling-earl-grey/)
+const ProductStyles = styled.div`
 
-// Need to put the product information bit into a component
+    @media only screen and (min-width: 900px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 4rem;
+        grid-template-areas:
+            "product-picture product-detail"
+            "product-info product-info";
 
+        margin-top: 50px;
 
+        .product-picture {
+            grid-area: product-picture;
+        }
 
+        .product-detail {
+            grid-area: product-detail;
+            .vat {
+                font-size: 3rem;
+            }
+        }
+
+        .product-info {
+            grid-area: product-info;
+        }
+    }
+
+`;
 
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTea } }) {
     const teaProduct = allSanityTea.edges[0].node;
 
-    // Makes the price of each product look nice
-    const formatMoney = Intl.NumberFormat('en-GB', {
-        style: 'currency',
-        currency: 'GBP',
-    }).format;
+// Makes the price of each product look nice
+const formatMoney = Intl.NumberFormat('en-GB', {
+    style: 'currency',
+    currency: 'GBP',
+}).format;
 
-    // Creates paragraph text from \n\n
-    function NewlineText(props) {
-        const text = props.text;
-        return text.split('\n\n').map((item, i) => <p key={i}>{item}</p>);
-    }
+// Creates paragraph text from \n\n
+function NewlineText(props) {
+    const text = props.text;
+    return text.split('\n\n').map((item, i) => <p key={i}>{item}</p>);
+}
 
-    // Counter for product quantity
-    const [count, setCount] = useState(1);
-    function increase() {
-        setCount(count + 1);
+// Counter for product quantity
+const [count, setCount] = useState(1);
+function increase() {
+    setCount(count + 1);
+}
+function decrease() {
+    if(count > 1) {
+        setCount(count - 1);
     }
-    function decrease() {
-        if(count > 1) {
-            setCount(count - 1);
-        }
-    }
-
+}
     return (
-      <div>
-        <h1>{teaProduct.name}</h1>
-        <p>from {formatMoney(teaProduct.price / 100) + ' inc VAT'}</p>
-        <NewlineText text={teaProduct.description} />
-        <Img fluid={teaProduct.image.asset.fluid} />
-        <h2>Did You Know...</h2>
-        <NewlineText text={teaProduct.did_you_know} />
-        <h2>Brewing Instructions</h2>
-        <p>{teaProduct.brewing_instructions}</p>
-        <h2>Ingredients</h2>
-        <p>{teaProduct.ingredients}</p>
-        <h2>Allergy Information</h2>
-        <p>{teaProduct.allergy ? `Dairy free, gluten free, suitable for vegetarians and vegans. Packed in a factory which handles nuts.` : ``}</p>
-        <select >
-            <option disabled hidden selected>Select Size</option>
-            {teaProduct.tea_weight.map((productSize,i) => (
-                <option key={i} value={productSize.weight}>{productSize.name}</option>))}
-        </select>
-        <div className="quantity-container">
-            <button type="button" onClick={decrease}>-</button>
-            <input type="number" name="quantity" value={count} />
-            <button type="button" onClick={increase}>+</button>
+    <ProductStyles>
+        <div className="product-picture">
+            <Img fluid={teaProduct.image.asset.fluid} alt={teaProduct.name} />
         </div>
-      </div>
+        <div className="product-detail">
+            <h1>{teaProduct.name}</h1>
+            <p><span className="vat">from {formatMoney(teaProduct.price / 100)}</span> inc VAT</p>
+            <NewlineText text={teaProduct.description} />
+            <h2>Did You Know...</h2>
+            <NewlineText text={teaProduct.did_you_know} />
+            <select >
+                <option disabled hidden selected>Select Size</option>
+                {teaProduct.tea_weight.map((productSize,i) => (
+                    <option key={i} value={productSize.weight}>{productSize.name}</option>))}
+            </select>
+            <div className="quantity-container">
+                <button type="button" onClick={decrease}>-</button>
+                <input type="number" name="quantity" value={count} />
+                <button type="button" onClick={increase}>+</button>
+            </div>
+            <button type="button">Add to basket</button>
+        </div>
+        <div className="product-info">
+            <h2>Brewing Instructions</h2>
+            <p>{teaProduct.brewing_instructions}</p>
+            <h2>Ingredients</h2>
+            <p>{teaProduct.ingredients}</p>
+            <h2>Allergy Information</h2>
+            <p>{teaProduct.allergy ? `Dairy free, gluten free, suitable for vegetarians and vegans. Packed in a factory which handles nuts.` : ``}</p>
+        </div>
+    </ProductStyles>
     )
 }
 
@@ -92,7 +123,7 @@ query($page: String!) {
                 }
                 image {
                     asset {
-                        fluid(maxWidth: 400) {
+                        fluid(maxWidth: 700) {
                             ...GatsbySanityImageFluid
                         }
                     }
