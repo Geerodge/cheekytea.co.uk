@@ -8,7 +8,7 @@ import SiteNotice from "./SiteNotice";
 import Typography from "../styles/Typography";
 
 const SiteBorderStyles = styled.div`
-    max-width: 1500px;
+    max-width: 1200px;
     background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23599b44' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 1rem;
@@ -16,6 +16,10 @@ const SiteBorderStyles = styled.div`
     padding: clamp(5px, 1vw, 10px);
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.044);
     border: 5px solid white;
+
+    @media only screen and (min-width: 1200px) {
+        margin: clamp(2rem, 2vw, 12rem) auto 4rem;
+    }
 
     @media only screen and (min-width: 1824px) {
         margin: 75px auto;

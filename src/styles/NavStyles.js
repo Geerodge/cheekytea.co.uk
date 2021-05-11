@@ -39,7 +39,7 @@ nav ul li a {
     }
 }
 img {
-    max-width: 100%;
+    max-width: 80%;
 }
 
 /* Nav Menu */

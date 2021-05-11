@@ -15,20 +15,49 @@ const ProductStyles = styled.div`
             "product-info product-info";
 
         margin-top: 50px;
-
         .product-picture {
             grid-area: product-picture;
         }
-
         .product-detail {
             grid-area: product-detail;
             .vat {
                 font-size: 3rem;
             }
         }
-
         .product-info {
             grid-area: product-info;
+        }
+
+        .options {
+            margin: 5px;
+            max-width: 250px;
+            min-width: 250px;
+            input {
+                max-width: 100px;
+            }
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none; 
+                margin: 0; 
+            }
+            input[type=number] {
+                width: 45px;
+                height: 36px;
+                text-align: center;
+            }
+        }
+        .quantity {
+            margin: 0px;
+            button {
+                padding: 1rem 2rem;
+                margin: 5px;
+            }
+        }
+        .sizes {
+            height: 36px;
+        }
+        .addcart {
+            height: 36px;
         }
     }
 
@@ -69,21 +98,21 @@ function decrease() {
             <h1>{teaProduct.name}</h1>
             <p><span className="vat">from {formatMoney(teaProduct.price / 100)}</span> inc VAT</p>
             <NewlineText text={teaProduct.description} />
-            <h2>Did You Know...</h2>
-            <NewlineText text={teaProduct.did_you_know} />
-            <select >
+            <select className="sizes options">
                 <option disabled hidden selected>Select Size</option>
                 {teaProduct.tea_weight.map((productSize,i) => (
                     <option key={i} value={productSize.weight}>{productSize.name}</option>))}
             </select>
-            <div className="quantity-container">
+            <div className="quantity options">
                 <button type="button" onClick={decrease}>-</button>
                 <input type="number" name="quantity" value={count} />
                 <button type="button" onClick={increase}>+</button>
             </div>
-            <button type="button">Add to basket</button>
+            <button type="button" className="addcart options">Add to basket</button>
         </div>
         <div className="product-info">
+            <h2>Did You Know...</h2>
+            <NewlineText text={teaProduct.did_you_know} />
             <h2>Brewing Instructions</h2>
             <p>{teaProduct.brewing_instructions}</p>
             <h2>Ingredients</h2>
