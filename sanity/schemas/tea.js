@@ -1,5 +1,4 @@
 import { GiTeapotLeaves as icon } from 'react-icons/gi';
-import PriceInput from "../components/PriceInput";
 
 export default {
     //Computer Name
@@ -66,13 +65,6 @@ export default {
             description: 'Interesting information about the tea',
         },
         {
-            name: 'price',
-            title: 'Price',
-            type: 'number',
-            description: 'Price of tea in pence',
-            inputComponent: PriceInput, 
-        },
-        {
             name: 'ingredients',
             title: 'Ingredients',
             type: 'string',
@@ -84,13 +76,6 @@ export default {
             type: 'array',
             description: 'Select the product weight.',
             of: [{  type: 'reference', to: [{ type: 'weight' }] }]
-        },
-        {
-            name: 'tea_dimension',
-            title: 'Tea Dimensions',
-            type: 'array',
-            description: 'Select the product size.',
-            of: [{  type: 'reference', to: [{ type: 'dimension' }] }]
         },
         {
             name: 'allergy',
