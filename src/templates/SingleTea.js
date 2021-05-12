@@ -30,7 +30,10 @@ function decrease() {
     }
 }
 
-//Track state of select element for product sizes and disable add to basket button if default value selected
+// Price format for Snipcart add to cart button
+const snipcartPrice = teaProduct.price / 100;
+
+// Track state of select element for product sizes and disables add to basket button if default value selected
 const [selectedValue, setValue] = useState("Select Size");
 
     return (
@@ -60,8 +63,20 @@ const [selectedValue, setValue] = useState("Select Size");
                 </div>
                 <button 
                     type="button" 
-                    className="addcart" 
+                    className="snipcart-add-item addcart" 
                     disabled={selectedValue === "Select Size" ? true : null}
+
+                    // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
+                    // {selectedValue} tracks weight selected from options dropdown
+                    // {count} tracks product quantity using state from -/+ buttons
+                    data-item-id={teaProduct.name}
+                    data-item-price={snipcartPrice}
+                    data-item-url={`/shop/${teaProduct.slug.current}`}
+                    data-item-description={teaProduct.short_description}
+                    data-item-image={teaProduct.image.asset.fixed.srcWebp}
+                    data-item-name={teaProduct.name}
+                    data-item-custom1-size={selectedValue}
+                    data-item-custom2-quantity={count}
                 >
                     {selectedValue === "Select Size" ? "Please select size" : "Add to basket"}
                 </button>
@@ -103,6 +118,9 @@ query($page: String!) {
                 name
                 price
                 short_description
+                slug {
+                    current
+                }
                 tea_dimension {
                     width
                     size
@@ -117,6 +135,9 @@ query($page: String!) {
                     asset {
                         fluid(maxWidth: 700) {
                             ...GatsbySanityImageFluid
+                        }
+                        fixed(width: 400) {
+                            srcWebp
                         }
                     }
                 }
