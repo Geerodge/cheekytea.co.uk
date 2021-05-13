@@ -63,6 +63,13 @@ export default {
             of: [{  type: 'reference', to: [{ type: 'tea' }] }]
         },
         {
+            name: 'tea_accessories',
+            title: 'Tea Accessories In Box',
+            type: 'array',
+            description: 'Select the accessories in this product.',
+            of: [{  type: 'reference', to: [{ type: 'tea_accessories' }] }]
+        },
+        {
             name: 'allergy',
             title: 'Allergy Information',
             type: 'boolean',
@@ -70,6 +77,19 @@ export default {
             options: {
                 layout: 'checkbox'
             }
+        },
+        {
+            title: 'Weight',
+            name: 'weight',
+            type: 'string',
+            description: '(Grams)',
+        },
+        {
+            name: 'accessory_dimension',
+            title: 'Accessory Dimensions',
+            type: 'array',
+            description: 'Select the product size.',
+            of: [{  type: 'reference', to: [{ type: 'dimension' }] }]
         },
     ],
 };

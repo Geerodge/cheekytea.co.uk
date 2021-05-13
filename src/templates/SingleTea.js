@@ -116,7 +116,6 @@ query($page: String!) {
                 allergy
                 ingredients
                 name
-                price
                 short_description
                 slug {
                     current

@@ -38,20 +38,6 @@ query($page: String!) {
                 price
                 featured
                 allergy
-                weight {
-                    weight
-                    name
-                }
-                tea_dimension {
-                    width
-                    size
-                    length
-                    height
-                }
-                tea_accessories {
-                    name
-                    description
-                }
                 tea {
                     name
                     short_description

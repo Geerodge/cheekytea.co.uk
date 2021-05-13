@@ -36,16 +36,6 @@ query($page: String!) {
                 description
                 name
                 featured
-                accessory_weight {
-                    weight
-                    name
-                }
-                accessory_dimension {
-                    width
-                    size
-                    length
-                    height
-                }
                 imagesGallery {
                     asset {
                         fluid(maxWidth: 400) {

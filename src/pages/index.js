@@ -55,7 +55,6 @@ export const query = graphql`
         teas: allSanityTea(filter: {featured: {eq: true}}) {
             nodes {
                 name
-                price
                 description
                 short_description
                 brewing_instructions
@@ -67,10 +66,12 @@ export const query = graphql`
                 slug {
                     current
                 }
-                tea_dimension {
-                    length
-                    size
+                product_options {
                     width
+                    weight
+                    price
+                    name
+                    length
                     height
                 }
                 image {

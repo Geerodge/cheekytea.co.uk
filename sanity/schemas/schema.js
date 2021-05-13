@@ -12,6 +12,7 @@ import hero from './hero_image';
 import accessories from './accessories';
 import teabox from "./teabox";
 import faq from "./faq";
+import dimension from "./dimension";
 import options from "./options";
 
 
@@ -27,6 +28,7 @@ export default createSchema({
     accessories, 
     teabox,
     faq,
+    dimension,
     options
   ]),
 });
