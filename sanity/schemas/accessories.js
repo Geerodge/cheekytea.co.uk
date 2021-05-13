@@ -55,19 +55,5 @@ export default {
             description: 'Price of tea in pence',
             inputComponent: PriceInput, 
         },
-        {
-            name: 'accessory_weight',
-            title: 'Accessory Weight',
-            type: 'array',
-            description: 'Select the product weight.',
-            of: [{  type: 'reference', to: [{ type: 'weight' }] }]
-        },
-        {
-            name: 'accessory_dimension',
-            title: 'Accessory Dimensions',
-            type: 'array',
-            description: 'Select the product size.',
-            of: [{  type: 'reference', to: [{ type: 'dimension' }] }]
-        },
     ],
 };

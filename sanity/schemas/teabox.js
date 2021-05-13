@@ -1,4 +1,5 @@
 import { ImDropbox as icon } from 'react-icons/Im';
+import PriceInput from "../components/PriceInput";
 
 export default {
     //Computer Name
@@ -60,27 +61,6 @@ export default {
             type: 'array',
             description: 'Select the teas in this product.',
             of: [{  type: 'reference', to: [{ type: 'tea' }] }]
-        },
-        {
-            name: 'tea_accessories',
-            title: 'Tea Accessories In Box',
-            type: 'array',
-            description: 'Select the accessories in this product.',
-            of: [{  type: 'reference', to: [{ type: 'tea_accessories' }] }]
-        },
-        {
-            name: 'tea_dimension',
-            title: 'Tea Dimensions',
-            type: 'array',
-            description: 'Select the product size.',
-            of: [{  type: 'reference', to: [{ type: 'dimension' }] }]
-        },
-        {
-            name: 'weight',
-            title: 'Weight',
-            type: 'array',
-            description: 'Select the product weight.',
-            of: [{  type: 'reference', to: [{ type: 'weight' }] }]
         },
         {
             name: 'allergy',
