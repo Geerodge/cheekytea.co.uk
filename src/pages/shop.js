@@ -27,7 +27,6 @@ export const query = graphql`
         teas: allSanityTea {
             nodes {
                 name
-                price
                 description
                 short_description
                 brewing_instructions
@@ -38,12 +37,6 @@ export const query = graphql`
                 featured
                 slug {
                     current
-                }
-                tea_dimension {
-                    length
-                    size
-                    width
-                    height
                 }
                 image {
                     asset {
@@ -64,14 +57,6 @@ export const query = graphql`
                 slug {
                     current
                   }
-                accessory_dimension {
-                    height
-                    width
-                    length
-                }
-                accessory_weight {
-                    weight
-                }
                 imagesGallery {
                     asset {
                         fluid(maxWidth: 400) {

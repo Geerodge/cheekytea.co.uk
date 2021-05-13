@@ -121,16 +121,6 @@ query($page: String!) {
                 slug {
                     current
                 }
-                tea_dimension {
-                    width
-                    size
-                    length
-                    height
-                }
-                tea_weight {
-                    weight
-                    name
-                }
                 image {
                     asset {
                         fluid(maxWidth: 700) {

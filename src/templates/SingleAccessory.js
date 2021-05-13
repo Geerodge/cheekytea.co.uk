@@ -35,7 +35,6 @@ query($page: String!) {
             node {
                 description
                 name
-                price
                 featured
                 accessory_weight {
                     weight

@@ -1,5 +1,4 @@
 import { ImDropbox as icon } from 'react-icons/Im';
-import PriceInput from "../components/PriceInput";
 
 export default {
     //Computer Name
