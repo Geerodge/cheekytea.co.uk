@@ -62,13 +62,6 @@ export default {
             of: [{  type: 'reference', to: [{ type: 'tea_accessories' }] }]
         },
         {
-            name: 'product_options',
-            title: 'Product Options',
-            type: 'array',
-            description: 'Select the product options.',
-            of: [{  type: 'reference', to: [{ type: 'options' }] }]
-        },
-        {
             name: 'allergy',
             title: 'Allergy Information',
             type: 'boolean',

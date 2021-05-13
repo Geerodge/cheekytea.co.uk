@@ -71,11 +71,11 @@ export default {
             description: 'Ingredients of the tea',
         },
         {
-            name: 'product_options',
-            title: 'Product Options',
+            name: 'tea_weight',
+            title: 'Tea Weight',
             type: 'array',
-            description: 'Select the product options.',
-            of: [{  type: 'reference', to: [{ type: 'options' }] }]
+            description: 'Select the product weight.',
+            of: [{  type: 'reference', to: [{ type: 'weight' }] }]
         },
         {
             name: 'allergy',

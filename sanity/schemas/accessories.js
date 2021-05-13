@@ -48,12 +48,5 @@ export default {
             type: 'text',
             description: 'Description of the tea',
         },
-        {
-            name: 'product_options',
-            title: 'Product Options',
-            type: 'array',
-            description: 'Select the product options.',
-            of: [{  type: 'reference', to: [{ type: 'options' }] }]
-        },
     ],
 };

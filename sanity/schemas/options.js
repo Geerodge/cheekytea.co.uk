@@ -3,7 +3,7 @@ import PriceInput from "../components/PriceInput";
 
 export default {
     //Computer Name
-    name: 'options',
+    name: 'weight',
     // Visible Title
     title: 'Product Options',
     type: 'document',
@@ -19,7 +19,7 @@ export default {
             title: 'Weight',
             name: 'weight',
             type: 'string',
-            description: '(In Grams and numbers only)',
+            description: '(Grams)',
         },
         {
             name: 'price',
