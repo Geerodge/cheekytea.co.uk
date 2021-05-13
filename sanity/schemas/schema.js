@@ -9,9 +9,10 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import tea from './tea';
 import person from './person';
 import hero from './hero_image';
+import dimension from './dimension';
 import accessories from './accessories';
 import teabox from "./teabox";
-import options from "./options";
+import weight from "./weight";
 import faq from "./faq";
 
 
@@ -23,10 +24,11 @@ export default createSchema({
   types: schemaTypes.concat([
     tea, 
     person, 
-    hero,
+    hero, 
+    dimension, 
     accessories, 
     teabox, 
-    options,
+    weight,
     faq
   ]),
 });

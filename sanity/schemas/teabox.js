@@ -48,6 +48,13 @@ export default {
             description: 'Description of the product',
         },
         {
+            name: 'price',
+            title: 'Price',
+            type: 'number',
+            description: 'Price of tea in pence',
+            inputComponent: PriceInput, 
+        },
+        {
             name: 'tea',
             title: 'Teas In Box',
             type: 'array',
@@ -60,6 +67,20 @@ export default {
             type: 'array',
             description: 'Select the accessories in this product.',
             of: [{  type: 'reference', to: [{ type: 'tea_accessories' }] }]
+        },
+        {
+            name: 'tea_dimension',
+            title: 'Tea Dimensions',
+            type: 'array',
+            description: 'Select the product size.',
+            of: [{  type: 'reference', to: [{ type: 'dimension' }] }]
+        },
+        {
+            name: 'weight',
+            title: 'Weight',
+            type: 'array',
+            description: 'Select the product weight.',
+            of: [{  type: 'reference', to: [{ type: 'weight' }] }]
         },
         {
             name: 'allergy',
