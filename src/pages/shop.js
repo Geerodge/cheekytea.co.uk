@@ -7,6 +7,7 @@ export default function ShopPage(props) {
     const teas = props.data.teas.nodes;
     const accessories = props.data.accessories.nodes;
     const teabox = props.data.teabox.nodes;
+    console.log(teas[0].product_options[0].price)
     return (
         <>
             <ShopHeading
@@ -35,6 +36,14 @@ export const query = graphql`
                 did_you_know
                 ingredients
                 featured
+                product_options {
+                    width
+                    weight
+                    price
+                    name
+                    length
+                    height
+                }
                 slug {
                     current
                 }

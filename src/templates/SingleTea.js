@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import ProductStyles from "../styles/SingleTeaStyles";
 
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTea } }) {
-    const teaProduct = allSanityTea.edges[0].node;
+
+// Deconstruct product data
+const teaProduct = allSanityTea.edges[0].node;
 
 // Makes the price of each product look nice
 const formatMoney = Intl.NumberFormat('en-GB', {
@@ -31,43 +32,97 @@ function decrease() {
 }
 
 // Price format for Snipcart add to cart button
-const snipcartPrice = teaProduct.price / 100;
+const snipcartPrice = teaProduct.product_options[0].price / 100;
 
 // Track state of select element for product sizes and disables add to basket button if default value selected
-const [selectedValue, setValue] = useState("Select Size");
+const [selectedWeight, setWeight] = useState("Select Size");
+function handleChange(e) {
+    setWeight(e.target.value)
+}
+
+
+
+
+const arr = Object.keys(teaProduct.product_options[0])
+            .map(function(key) {
+                return [key,teaProduct.product_options[0][key]]
+            });
+
+console.log(arr);
+
+// iterate over the user object
+for (const key in teaProduct.product_options[0]) {
+    if (teaProduct.product_options[0].hasOwnProperty(key)) {
+        console.log(`${key}: ${teaProduct.product_options[0][key]}`);
+    }
+}
+
+
+
+// const test = teaProduct.product_options.map((productOption,i) => (
+
+// );
+
+// console.log(test);
+
+
+
+
+
+
+// 0 {
+//     height: "230"
+//     ​​
+//     length: "160"
+//     ​​
+//     name: "Small Pack (50g)"
+//     ​​
+//     price: 399
+//     ​​
+//     weight: "50"
+//     ​​
+//     width: "10"
+//     }
+
+// collect the current selected weight for product
+// check if that weight is in the products_options array
+// if it is then get the price value from that array object
+
+
+
 
     return (
     <ProductStyles>
         <div className="product">
-            <h1>{teaProduct.name}</h1>
-            <p><span className="vat">from {formatMoney(teaProduct.price / 100)}</span> inc VAT</p>
+            <h1>{teaProduct.name}</h1>       
+            <p><span className="vat">{formatMoney(teaProduct.product_options[0].price / 100)}</span> inc VAT</p>
             <Img fluid={teaProduct.image.asset.fluid} alt={teaProduct.name} />
             <div className="product-options">
                 <select
-                    onChange={(e) => setValue(e.target.value)}
+                    onChange={handleChange}
                     name="sizes"
-                    defaultValue={selectedValue}
+                    defaultValue={selectedWeight}
                 >
                     <option disabled hidden value="Select Size">Select Size</option>
-                        {teaProduct.tea_weight.map((productSize,i) => (
+                        {teaProduct.product_options.map((product,i) => (
                             <option 
                                 key={i}
-                                value={productSize.weight}>{productSize.name}
+                                value={product.weight}>{product.name}
                             </option>
                         ))}
                 </select>
                 <div className="quantity">
                     <button type="button" onClick={decrease}>-</button>
-                    <input type="number" name="quantity" value={count} />
+                    <input type="number" name="quantity" value={count} readOnly />
                     <button type="button" onClick={increase}>+</button>
                 </div>
                 <button 
                     type="button" 
                     className="snipcart-add-item addcart" 
-                    disabled={selectedValue === "Select Size" ? true : null}
+                    disabled={selectedWeight === "Select Size" ? true : null}
 
                     // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
-                    // {selectedValue} tracks weight selected from options dropdown
+                    // {selectedWeight} tracks weight selected from options dropdown
                     // {count} tracks product quantity using state from -/+ buttons
                     data-item-id={teaProduct.name}
                     data-item-price={snipcartPrice}
@@ -75,10 +130,10 @@ const [selectedValue, setValue] = useState("Select Size");
                     data-item-description={teaProduct.short_description}
                     data-item-image={teaProduct.image.asset.fixed.srcWebp}
                     data-item-name={teaProduct.name}
-                    data-item-custom1-size={selectedValue}
+                    data-item-custom1-size={selectedWeight}
                     data-item-custom2-quantity={count}
                 >
-                    {selectedValue === "Select Size" ? "Please select size" : "Add to basket"}
+                    {selectedWeight === "Select Size" ? "Please select size" : "Add to basket"}
                 </button>
             </div>
             <h2>Description</h2>
@@ -102,36 +157,3 @@ const [selectedValue, setValue] = useState("Select Size");
     )
 }
 
-// This is dynamic based on the id passed in via context in gatsby-node.js
-export const query = graphql`
-query($page: String!) {
-    allSanityTea(filter: {_id: {eq: $page}}) {
-        edges {
-            node {
-                _id
-                did_you_know
-                featured
-                description
-                brewing_instructions
-                allergy
-                ingredients
-                name
-                short_description
-                slug {
-                    current
-                }
-                image {
-                    asset {
-                        fluid(maxWidth: 700) {
-                            ...GatsbySanityImageFluid
-                        }
-                        fixed(width: 400) {
-                            srcWebp
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-`;
