@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Img from "gatsby-image";
+import { graphql } from "gatsby";
 import ProductStyles from "../styles/SingleTeaStyles";
 
 // Product data is passed in via context in gatsby-node.js
@@ -35,29 +36,46 @@ function decrease() {
 const snipcartPrice = teaProduct.product_options[0].price / 100;
 
 // Track state of select element for product sizes and disables add to basket button if default value selected
-const [selectedWeight, setWeight] = useState("Select Size");
+let [selectedWeight, setWeight] = useState("Select Size");
 function handleChange(e) {
+    // collect the current selected weight for product
     setWeight(e.target.value)
+    // {selectedWeight}
+    // check if that weight is in the products_options array
+    var __FOUND = -1;
+    for(var i=0; i<teaProduct.product_options.length; i++) {
+        if(teaProduct.product_options[i].title == 'weight') {
+            // __FOUND is set to the index of the element
+            __FOUND = i;
+            break;
+        }
+    console.log(__FOUND);
+    }
+    // // if it is found then get the price value from that array object
+    // var ___FOUND = __POSTS.find(function(post, index) {
+    //     if(post.title == 'Guava')
+    //         return true;
+    // });
 }
 
 
 
+// let found = selectedWeight.findIndex(element => element > "price");
+// console.log({selectedWeight});
 
-const arr = Object.keys(teaProduct.product_options[0])
-            .map(function(key) {
-                return [key,teaProduct.product_options[0][key]]
-            });
+// const arr = Object.keys(teaProduct.product_options[0])
+//             .map(function(key) {
+//                 return [key,teaProduct.product_options[0][key]]
+//             });
 
-console.log(arr);
+// console.log(arr);
 
 // iterate over the user object
-for (const key in teaProduct.product_options[0]) {
-    if (teaProduct.product_options[0].hasOwnProperty(key)) {
-        console.log(`${key}: ${teaProduct.product_options[0][key]}`);
-    }
-}
-
-
+// for (const key in teaProduct.product_options[0]) {
+//     if (teaProduct.product_options[0].hasOwnProperty(key)) {
+//         console.log(`${key}: ${teaProduct.product_options[0][key]}`);
+//     }
+// }
 
 // const test = teaProduct.product_options.map((productOption,i) => (
 
@@ -84,10 +102,6 @@ for (const key in teaProduct.product_options[0]) {
 //     width: "10"
 //     }
 
-// collect the current selected weight for product
-// check if that weight is in the products_options array
-// if it is then get the price value from that array object
-
 
 
 
@@ -99,9 +113,9 @@ for (const key in teaProduct.product_options[0]) {
             <Img fluid={teaProduct.image.asset.fluid} alt={teaProduct.name} />
             <div className="product-options">
                 <select
-                    onChange={handleChange}
                     name="sizes"
                     defaultValue={selectedWeight}
+                    onChange={handleChange}
                 >
                     <option disabled hidden value="Select Size">Select Size</option>
                         {teaProduct.product_options.map((product,i) => (
@@ -156,4 +170,46 @@ for (const key in teaProduct.product_options[0]) {
     </ProductStyles>
     )
 }
+
+// This is dynamic based on the id passed in via context in gatsby-node.js
+export const query = graphql`
+query($page: String!) {
+    allSanityTea(filter: {_id: {eq: $page}}) {
+        edges {
+            node {
+                _id
+                did_you_know
+                featured
+                description
+                brewing_instructions
+                allergy
+                ingredients
+                name
+                short_description
+                product_options {
+                    width
+                    weight
+                    price
+                    name
+                    length
+                    height
+                }
+                slug {
+                    current
+                }
+                image {
+                    asset {
+                        fluid(maxWidth: 700) {
+                            ...GatsbySanityImageFluid
+                        }
+                        fixed(width: 400) {
+                            srcWebp
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+`;
 
