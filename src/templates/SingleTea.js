@@ -37,70 +37,52 @@ const snipcartPrice = teaProduct.product_options[0].price / 100;
 
 // Track state of select element for product sizes and disables add to basket button if default value selected
 let [selectedWeight, setWeight] = useState("Select Size");
-function handleChange(e) {
+function handleOptionChange(e) {
     // collect the current selected weight for product
-    setWeight(e.target.value)
-    // {selectedWeight}
-    // check if that weight is in the products_options array
-    var __FOUND = -1;
-    for(var i=0; i<teaProduct.product_options.length; i++) {
-        if(teaProduct.product_options[i].title == 'weight') {
-            // __FOUND is set to the index of the element
-            __FOUND = i;
-            break;
-        }
-    console.log(__FOUND);
+    setWeight(e.target.value);
+}
+
+// check if the currently selected weight is in the products_options array
+// if it is, grab the price from that array and return it
+let productOptions = teaProduct.product_options;
+
+console.log(productOptions);
+
+function arrayObjectIndexOf(myArray, property, searchTerm) {
+    for (var i = 0, len = myArray.length; i < len; i++) {
+        if (myArray[i].property === searchTerm)
+            return myArray[i];
     }
-    // // if it is found then get the price value from that array object
-    // var ___FOUND = __POSTS.find(function(post, index) {
-    //     if(post.title == 'Guava')
-    //         return true;
-    // });
+    return -1;
 }
 
 
-
-// let found = selectedWeight.findIndex(element => element > "price");
-// console.log({selectedWeight});
-
-// const arr = Object.keys(teaProduct.product_options[0])
-//             .map(function(key) {
-//                 return [key,teaProduct.product_options[0][key]]
-//             });
-
-// console.log(arr);
-
-// iterate over the user object
-// for (const key in teaProduct.product_options[0]) {
-//     if (teaProduct.product_options[0].hasOwnProperty(key)) {
-//         console.log(`${key}: ${teaProduct.product_options[0][key]}`);
-//     }
-// }
-
-// const test = teaProduct.product_options.map((productOption,i) => (
-
-// );
-
-// console.log(test);
-
-
-
-
-
-
-// 0 {
-//     height: "230"
-//     ​​
-//     length: "160"
-//     ​​
-//     name: "Small Pack (50g)"
-//     ​​
-//     price: 399
-//     ​​
-//     weight: "50"
-//     ​​
-//     width: "10"
-//     }
+// 0:
+// height: "230"
+// length: "160"
+// name: "Small Pack (50g)"
+// price: 399
+// weight: "50"
+// width: "10"
+// __proto__: Object
+// 1:
+// height: "260"
+// length: "190"
+// name: "Medium Pack (150g)"
+// price: 999
+// weight: "150"
+// width: "10"
+// __proto__: Object
+// 2:
+// height: "335"
+// length: "235"
+// name: "Large Pack (300g)"
+// price: 2499
+// weight: "300"
+// width: "10"
+// __proto__: Object
+// length: 3
+// __proto__: Array(0)
 
 
 
@@ -115,7 +97,7 @@ function handleChange(e) {
                 <select
                     name="sizes"
                     defaultValue={selectedWeight}
-                    onChange={handleChange}
+                    onChange={handleOptionChange}
                 >
                     <option disabled hidden value="Select Size">Select Size</option>
                         {teaProduct.product_options.map((product,i) => (
