@@ -44,9 +44,24 @@ function handleOptionChange(e) {
 
 // check if the currently selected weight is in the products_options array
 // if it is, grab the price from that array and return it
-let productOptions = teaProduct.product_options;
+// let productOptions = teaProduct.product_options;
 
-console.log(productOptions);
+// console.log(productOptions);
+
+
+// var findElement = function (array, inputId) {
+//     for (var i = array.length - 1; i >= 0; i--) {
+//         if (array[i].ID === inputId) {
+//             return array[i];
+//         }
+//     }
+// };
+
+// findElement(array, 3);
+
+
+
+
 
 function arrayObjectIndexOf(myArray, property, searchTerm) {
     for (var i = 0, len = myArray.length; i < len; i++) {
