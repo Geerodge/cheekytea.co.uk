@@ -32,9 +32,6 @@ function decrease() {
     }
 }
 
-// Price format for Snipcart add to cart button
-const snipcartPrice = teaProduct.product_options[0].price / 100;
-
 // Track state of select element for product sizes and disables add to basket button if default value selected
 let [selectedWeight, setWeight] = useState("Select Size");
 function handleOptionChange(e) {
@@ -43,7 +40,7 @@ function handleOptionChange(e) {
 }
 
 // Check if the currently selected weight is in the products_options array of objects
-// If it is, grab that the price from that array object and return it
+// If it is, grab the corresponding price from that array object and return it
 let productOptions = teaProduct.product_options;
 let findElement = function (array, searchInput) {
     for (let i = array.length - 1; i >= 0; i--) {
@@ -53,57 +50,17 @@ let findElement = function (array, searchInput) {
     }
 };
 
-console.log(findElement(productOptions, selectedWeight));
+// Price format for Snipcart add to cart button and dynamic price displayed on page
+let productPrice = findElement(productOptions, selectedWeight) / 100;
+let checkPrice = Number.isFinite(productPrice) ? true : null;
 
-
-
-
-
-
-// function arrayObjectIndexOf(myArray, property, searchTerm) {
-//     for (var i = 0, len = myArray.length; i < len; i++) {
-//         if (myArray[i].property === searchTerm)
-//             return myArray[i];
-//     }
-//     return -1;
-// }
-
-
-// 0:
-// height: "230"
-// length: "160"
-// name: "Small Pack (50g)"
-// price: 399
-// weight: "50"
-// width: "10"
-// __proto__: Object
-// 1:
-// height: "260"
-// length: "190"
-// name: "Medium Pack (150g)"
-// price: 999
-// weight: "150"
-// width: "10"
-// __proto__: Object
-// 2:
-// height: "335"
-// length: "235"
-// name: "Large Pack (300g)"
-// price: 2499
-// weight: "300"
-// width: "10"
-// __proto__: Object
-// length: 3
-// __proto__: Array(0)
-
-
-
+console.log(checkPrice)
 
     return (
     <ProductStyles>
         <div className="product">
-            <h1>{teaProduct.name}</h1>       
-            <p><span className="vat">{formatMoney(teaProduct.product_options[0].price / 100)}</span> inc VAT</p>
+            <h1>{teaProduct.name}</h1>
+            <p><span className="vat">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p>
             <Img fluid={teaProduct.image.asset.fluid} alt={teaProduct.name} />
             <div className="product-options">
                 <select
@@ -133,7 +90,7 @@ console.log(findElement(productOptions, selectedWeight));
                     // {selectedWeight} tracks weight selected from options dropdown
                     // {count} tracks product quantity using state from -/+ buttons
                     data-item-id={teaProduct.name}
-                    data-item-price={snipcartPrice}
+                    data-item-price={productPrice}
                     data-item-url={`/shop/${teaProduct.slug.current}`}
                     data-item-description={teaProduct.short_description}
                     data-item-image={teaProduct.image.asset.fixed.srcWebp}
