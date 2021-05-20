@@ -42,34 +42,31 @@ function handleOptionChange(e) {
     setWeight(e.target.value);
 }
 
-// check if the currently selected weight is in the products_options array
-// if it is, grab the price from that array and return it
-// let productOptions = teaProduct.product_options;
-
-// console.log(productOptions);
-
-
-// var findElement = function (array, inputId) {
-//     for (var i = array.length - 1; i >= 0; i--) {
-//         if (array[i].ID === inputId) {
-//             return array[i];
-//         }
-//     }
-// };
-
-// findElement(array, 3);
-
-
-
-
-
-function arrayObjectIndexOf(myArray, property, searchTerm) {
-    for (var i = 0, len = myArray.length; i < len; i++) {
-        if (myArray[i].property === searchTerm)
-            return myArray[i];
+// Check if the currently selected weight is in the products_options array of objects
+// If it is, grab that the price from that array object and return it
+let productOptions = teaProduct.product_options;
+let findElement = function (array, searchInput) {
+    for (let i = array.length - 1; i >= 0; i--) {
+        if (array[i].weight === searchInput) {
+            return array[i].price;
+        }
     }
-    return -1;
-}
+};
+
+console.log(findElement(productOptions, selectedWeight));
+
+
+
+
+
+
+// function arrayObjectIndexOf(myArray, property, searchTerm) {
+//     for (var i = 0, len = myArray.length; i < len; i++) {
+//         if (myArray[i].property === searchTerm)
+//             return myArray[i];
+//     }
+//     return -1;
+// }
 
 
 // 0:
