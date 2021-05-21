@@ -71,6 +71,10 @@ const SingleTeaStyles = styled.div`
         -moz-appearance: textfield;
     }
 
+    .vat {
+        font-size: 3rem;
+    }
+
 `;
 
 export default SingleTeaStyles;

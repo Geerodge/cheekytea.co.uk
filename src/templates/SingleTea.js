@@ -54,8 +54,6 @@ let findElement = function (array, searchInput) {
 let productPrice = findElement(productOptions, selectedWeight) / 100;
 let checkPrice = Number.isFinite(productPrice) ? true : null;
 
-console.log(checkPrice)
-
     return (
     <ProductStyles>
         <div className="product">
