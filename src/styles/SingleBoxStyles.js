@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SingleTeaStyles = styled.div`
+const SingleBoxStyles = styled.div`
 
     display: grid;
     grid-template-columns: 1fr;
@@ -84,4 +84,4 @@ const SingleTeaStyles = styled.div`
 
 `;
 
-export default SingleTeaStyles;
+export default SingleBoxStyles;

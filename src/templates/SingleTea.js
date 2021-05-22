@@ -58,9 +58,8 @@ let checkPrice = Number.isFinite(productPrice) ? true : null;
     <ProductStyles>
         <div className="product">
             <h1>{teaProduct.name}</h1>
-            <p><span className="vat">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p>
-            <Img fluid={teaProduct.image.asset.fluid} alt={teaProduct.name} />
-            <p><span className="vat">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p>
+            <Img className="product-image" fluid={teaProduct.image.asset.fluid} alt={teaProduct.name} />
+            <p className="full-price"><span className="price">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p>
             <div className="product-options">
                 <select
                     name="sizes"

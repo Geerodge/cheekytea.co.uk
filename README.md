@@ -64,6 +64,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
+Thanks to [xiaolin](https://github.com/xiaolin) for the [React carousel image gallery](https://github.com/xiaolin/react-image-gallery) that I used on the [Cheeky Tea Box](https://cheekytea/shop/tea-box) product page.
+
+Writing [clean code](https://github.com/ryanmcdermott/clean-code-javascript) by [Ryan McDermott](https://github.com/ryanmcdermott)
+
 * Hat tip to anyone whose code was used
 * Inspiration
 * etc
