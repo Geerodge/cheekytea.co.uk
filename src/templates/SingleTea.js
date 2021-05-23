@@ -41,7 +41,6 @@ function handleOptionChange(e) {
 
 // Check if the currently selected weight is in the products_options array of objects
 // If it is, grab the corresponding price from that array object and return it
-let productOptions = teaProduct.product_options;
 let findElement = function (array, searchInput) {
     for (let i = array.length - 1; i >= 0; i--) {
         if (array[i].weight === searchInput) {
@@ -51,6 +50,7 @@ let findElement = function (array, searchInput) {
 };
 
 // Price format for Snipcart add to cart button and dynamic price displayed on page
+let productOptions = teaProduct.product_options;
 let productPrice = findElement(productOptions, selectedWeight) / 100;
 let checkPrice = Number.isFinite(productPrice) ? true : null;
 
