@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import ProductStyles from "../styles/SingleBoxStyles";
@@ -20,6 +20,17 @@ const formatMoney = Intl.NumberFormat('en-GB', {
 function NewlineText(props) {
     const text = props.text;
     return text.split('\n\n').map((item, i) => <p key={i}>{item}</p>);
+}
+
+// Counter for product quantity
+const [count, setCount] = useState(1);
+function increase() {
+    setCount(count + 1);
+}
+function decrease() {
+    if(count > 1) {
+        setCount(count - 1);
+    }
 }
 
 // Validate string is a URL
@@ -53,19 +64,71 @@ let findCleanProductURL = function(array) {
     return images.reverse();
 };
 
+// Collect all included products and return to an array
+let collectIncludedProducts = function(array) {
+    let products = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+        products.push(array[i].name)
+    }
+    return products.reverse();
+}
+let includedProducts = collectIncludedProducts(teaBox.tea);
+
+// Collect all included accessories and return to an array
+let collectIncludedAccessories = function(array) {
+    let accessories = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+        accessories.push(array[i].name)
+    }
+    return accessories.reverse();
+}
+let includedAccessories = collectIncludedAccessories(teaBox.tea_accessories);
+
 // Create product images gallery for ImageGallery component below
 let productImages = findCleanProductURL(teaBox.imagesGallery);
+console.log(teaBox);
     return (
     <ProductStyles>
         <div className="product">
             <h1>{teaBox.name}</h1>
-            <Img fluid={teaBox.imagesGallery[0].asset.fluid} alt={teaBox.name} />
-            <ProductGallery items={productImages} />
+            <Img className="product-image" fluid={teaBox.imagesGallery[0].asset.fluid} alt={teaBox.name} />
+            {/* <ProductGallery items={productImages} /> // For now not using this as it's broken */}
+            <p className="full-price"><span className="price">{formatMoney(teaBox.price / 100)}</span> inc VAT</p>
+            <div className="product-options">
+                <div className="quantity">
+                    <button type="button" onClick={decrease}>-</button>
+                    <input type="number" name="quantity" value={count} readOnly />
+                    <button type="button" onClick={increase}>+</button>
+                </div>
+                <button 
+                    type="button" 
+                    className="snipcart-add-item addcart" 
+                    
+                    // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
+                    // {count} tracks product quantity using state from -/+ buttons
+                    data-item-id={teaBox.name}
+                    data-item-price={teaBox.price}
+                    data-item-url={`/shop/${teaBox.slug.current}`}
+                    data-item-image={teaBox.tea[0].image.asset.fluid.src}
+                    data-item-name={teaBox.name}
+                    data-item-custom2-quantity={count}
+                >
+                Add to basket
+                </button>
+            </div>
             {/* <p className="full-price"><span className="price">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p> */}
-            <p>{teaBox.description}</p>
-            <p>{teaBox.price}</p>
-            <p>{teaBox.featured}</p>
-            <p>{teaBox.allergy}</p>
+            <NewlineText 
+                text={teaBox.description}
+            />
+            <h2>Inside The Cheeky Tea Box</h2>
+            <p>{includedProducts.length} packs of tea (50g each):</p>
+            {includedProducts.map((name,i) => (
+                <li>{name}</li>
+            ))}
+            <p>Accessories:</p>
+            {includedAccessories.map((name,i) => (
+                <li>{name}</li>
+            ))}       
         </div>
     </ProductStyles>
     )
@@ -80,8 +143,9 @@ query($page: String!) {
                 name
                 description
                 price
-                featured
-                allergy
+                slug {
+                    current
+                }
                 tea {
                     name
                     short_description
@@ -98,8 +162,13 @@ query($page: String!) {
                     asset {
                         fluid {
                             src
+                            ...GatsbySanityImageFluid
                         }
                     }
+                }
+                tea_accessories {
+                    description
+                    name
                 }
             }
         }

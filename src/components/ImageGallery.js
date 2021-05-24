@@ -23,12 +23,14 @@ const images = [
     },
   ];
 
+
+
 export default function ProductGallery(props) {
     return (
         <ImageGalleryStyles>
             <ImageGallery
-                // items={props.items} // Why does this not resize???
-                items={images}
+                items={props.items} // Why does this not resize???
+                // items={images}
                 showPlayButton={false}
                 showBullets={true}
             />
