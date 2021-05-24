@@ -7,7 +7,6 @@ export default function ShopPage(props) {
     const teas = props.data.teas.nodes;
     const accessories = props.data.accessories.nodes;
     const teabox = props.data.teabox.nodes;
-    console.log(teas[0].product_options[0].price)
     return (
         <>
             <ShopHeading

@@ -2,8 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import ProductStyles from "../styles/SingleBoxStyles";
-import '../../node_modules/react-image-gallery/styles/css/image-gallery.css';
-import ImageGallery from 'react-image-gallery';
+import ProductGallery from '../components/ImageGallery';
 
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTeaBox } }) {
@@ -48,7 +47,7 @@ let findCleanProductURL = function(array) {
     for (let i = array.length - 1; i >= 0; i--) {
         if (isValidURL(array[i].asset.fluid.src) === true) {
             if (array[i].asset.fluid.src.includes('?'))
-            images.push({original:stripUrl(array[i].asset.fluid.src), thumbnail:stripUrl(array[i].asset.fluid.src) + "?w=300&h=300&fit=crop"});
+            images.push({original:stripUrl(array[i].asset.fluid.src) + "?w=600&h=600&fit=crop", thumbnail:stripUrl(array[i].asset.fluid.src) + "?w=300&h=300&fit=crop"});
         }
     }
     return images.reverse();
@@ -56,20 +55,12 @@ let findCleanProductURL = function(array) {
 
 // Create product images gallery for ImageGallery component below
 let productImages = findCleanProductURL(teaBox.imagesGallery);
-
     return (
     <ProductStyles>
         <div className="product">
             <h1>{teaBox.name}</h1>
             <Img fluid={teaBox.imagesGallery[0].asset.fluid} alt={teaBox.name} />
-            {/* // Need to make this responsive */}
-            <section className='app container'>
-                <ImageGallery 
-                    items={productImages}
-                    showPlayButton={false}
-                    showBullets={true}
-                />
-            </section>
+            <ProductGallery items={productImages} />
             {/* <p className="full-price"><span className="price">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p> */}
             <p>{teaBox.description}</p>
             <p>{teaBox.price}</p>
