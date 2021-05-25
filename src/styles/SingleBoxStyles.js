@@ -82,6 +82,12 @@ const SingleBoxStyles = styled.div`
         margin-top: 20px;
     }
 
+    .product {
+        .title {
+            margin-bottom: 20px;
+        }
+    }
+
 `;
 
 export default SingleBoxStyles;
