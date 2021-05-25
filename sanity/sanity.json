@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "cheeky-tea"
-  },
   "api": {
     "projectId": "p410jtyo",
     "dataset": "production"
+  },
+  "project": {
+    "name": "cheeky-tea"
   },
   "plugins": [
     "@sanity/base",

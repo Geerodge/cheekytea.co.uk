@@ -98,9 +98,6 @@ export const query = graphql`
                     width
                     length
                 }
-                accessory_weight {
-                    weight
-                }
                 imagesGallery {
                     asset {
                         fluid(maxWidth: 400) {
