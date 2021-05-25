@@ -88,6 +88,12 @@ const SingleBoxStyles = styled.div`
         }
     }
 
+    @media only screen and (min-width: 768px) {
+    }
+
+    @media only screen and (min-width: 1000px) {
+    }
+
 `;
 
 export default SingleBoxStyles;
