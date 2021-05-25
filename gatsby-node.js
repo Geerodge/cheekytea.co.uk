@@ -39,10 +39,23 @@ exports.createPages = async ({ graphql, actions }) => {
             }
         }
     `);
+    const queryPage = await graphql(`
+        query {
+            page: allSanityBasicPages {
+                nodes {
+                    _id
+                    slug {
+                        current
+                    }
+                }
+            }
+        }
+    `);
     // Page template paths
     const productTea = path.resolve(`src/templates/SingleTea.js`)
     const productAccessory = path.resolve(`src/templates/SingleAccessory.js`)
     const productBox = path.resolve(`src/templates/SingleBox.js`)
+    const blankPage = path.resolve(`src/templates/BasicPage.js`)
     // Create tea product pages
     queryTeas.data.teas.nodes.forEach(node => {
         createPage({
@@ -72,6 +85,18 @@ exports.createPages = async ({ graphql, actions }) => {
         createPage({
         path: `/shop/${node.slug.current}`,
         component: productBox,
+        context: {
+            // The entire product is passed down as context
+            slug: node.slug.current,
+            page: node._id,
+        },
+        })
+    })
+    //Create basic pages
+    queryPage.data.page.nodes.forEach(node => {
+        createPage({
+        path: `/${node.slug.current}`,
+        component: blankPage,
         context: {
             // The entire product is passed down as context
             slug: node.slug.current,

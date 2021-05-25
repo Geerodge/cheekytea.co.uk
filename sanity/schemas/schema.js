@@ -14,6 +14,7 @@ import teabox from "./teabox";
 import faq from "./faq";
 import dimension from "./dimension";
 import options from "./options";
+import basicpages from "./basicpages";
 
 
 export default createSchema({
@@ -29,6 +30,7 @@ export default createSchema({
     teabox,
     faq,
     dimension,
-    options
+    options,
+    basicpages
   ]),
 });
