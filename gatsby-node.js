@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
         }
     `);
-    const queryPage = await graphql(`
+    const queryBasic = await graphql(`
         query {
             page: allSanityBasicPages {
                 nodes {
@@ -93,7 +93,7 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
     //Create basic pages
-    queryPage.data.page.nodes.forEach(node => {
+    queryBasic.data.page.nodes.forEach(node => {
         createPage({
         path: `/${node.slug.current}`,
         component: blankPage,

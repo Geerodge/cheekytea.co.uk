@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import ProductStyles from "../styles/SingleBoxStyles";
 import ProductGallery from '../components/ImageGallery';
-
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTeaBox } }) {
 
@@ -45,24 +44,26 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
     }
 
     // Remove all parameters from a URL
-    function stripUrl(urlToStrip){
-        let stripped = urlToStrip.split('?')[0];
-        stripped = stripped.split('&')[0];
-        stripped = stripped.split('#')[0];
-        return stripped;
-    };
+    // function stripUrl(urlToStrip){
+    //     let stripped = urlToStrip.split('?')[0];
+    //     stripped = stripped.split('&')[0];
+    //     stripped = stripped.split('#')[0];
+    //     return stripped;
+    // };
 
     // Function to loop through the product images object array and grab the image src URL's, remove all parameters and return them in a new array
     let findCleanProductURL = function(array) {
         let images = [];
         for (let i = array.length - 1; i >= 0; i--) {
-            if (isValidURL(array[i].asset.fluid.src) === true) {
-                if (array[i].asset.fluid.src.includes('?'))
-                images.push({original:stripUrl(array[i].asset.fluid.src) + "?w=600&h=600&fit=crop", thumbnail:stripUrl(array[i].asset.fluid.src) + "?w=300&h=300&fit=crop"});
+                if (isValidURL(array[i].asset.url) === true) {
+                    if (array[i].asset.url.includes('http'))
+                    images.push({original:array[i].asset.url + "?w=600&h=600&fit=crop", thumbnail:array[i].asset.url + "?w=300&h=300&fit=crop"});
             }
         }
         return images.reverse();
     };
+    // Create product images gallery for ImageGallery component below
+    let productImages = findCleanProductURL(teaBox.imagesGallery);
 
     // Collect all included products and return to an array
     let collectIncludedProducts = function(array) {
@@ -84,14 +85,12 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
     }
     let includedAccessories = collectIncludedAccessories(teaBox.tea_accessories);
 
-    // Create product images gallery for ImageGallery component below
-    let productImages = findCleanProductURL(teaBox.imagesGallery);
-        return (
+    return (
         <ProductStyles>
             <div className="product">
-                <h1>{teaBox.name}</h1>
-                <Img className="product-image" fluid={teaBox.imagesGallery[0].asset.fluid} alt={teaBox.name} />
-                {/* <ProductGallery items={productImages} /> // For now not using this as it's broken */}
+                <h1 className="title">{teaBox.name}</h1>
+                {/* <Img className="product-image" fluid={teaBox.imagesGallery[0].asset.fluid} alt={teaBox.name} /> */}
+                <ProductGallery items={productImages} />
                 <p className="full-price"><span className="price">{formatMoney(teaBox.price / 100)}</span> inc VAT</p>
                 <div className="product-options">
                     <div className="quantity">
@@ -103,37 +102,36 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
                         type="button" 
                         className="snipcart-add-item addcart" 
                         
-                        // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
-                        // {count} tracks product quantity using state from -/+ buttons
-                        data-item-id={teaBox.name}
-                        data-item-price={teaBox.price}
-                        data-item-url={`/shop/${teaBox.slug.current}`}
-                        data-item-image={teaBox.tea[0].image.asset.fluid.src}
-                        data-item-name={teaBox.name}
-                        data-item-custom2-quantity={count}
-                    >
-                    Add to basket
-                    </button>
-                </div>
-                {/* <p className="full-price"><span className="price">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p> */}
-                <NewlineText 
-                    text={teaBox.description}
-                />
-                <h2>Inside The Cheeky Tea Box</h2>
-                <p>{includedProducts.length} packs of tea (50g each):</p>
-                {includedProducts.map((name,i) => (
-                    <li>{name}</li>
-                ))}
-                <p>Accessories:</p>
-                {includedAccessories.map((name,i) => (
-                    <li>{name}</li>
-                ))}       
+                    // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
+                    // {count} tracks product quantity using state from -/+ buttons
+                    data-item-id={teaBox.name}
+                    data-item-price={teaBox.price}
+                    data-item-url={`/shop/${teaBox.slug.current}`}
+                    data-item-image={teaBox.tea[0].image.asset.fluid.src}
+                    data-item-name={teaBox.name}
+                    data-item-custom2-quantity={count}
+                >
+                Add to basket
+                </button>
             </div>
-        </ProductStyles>
-        )
+            {/* <p className="full-price"><span className="price">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p> */}
+            <NewlineText 
+                text={teaBox.description}
+                />
+            <h2>Inside The Cheeky Tea Box</h2>
+            <p>{includedProducts.length} packs of tea (50g each):</p>
+            {includedProducts.map((name,i) => (
+                <li>{name}</li>
+            ))}
+            <p>Accessories:</p>
+            {includedAccessories.map((name,i) => (
+                <li>{name}</li>
+            ))}       
+        </div>
+    </ProductStyles>
+    )
 }
 
-// This is dynamic based on the id passed in via context in gatsby-node.js
 export const query = graphql`
 query($page: String!) {
     allSanityTeaBox(filter: {_id: {eq: $page}}) {
@@ -159,6 +157,7 @@ query($page: String!) {
                 }
                 imagesGallery {
                     asset {
+                        url
                         fluid {
                             src
                             ...GatsbySanityImageFluid
