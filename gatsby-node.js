@@ -56,13 +56,13 @@ exports.createPages = async ({ graphql, actions }) => {
     const productAccessory = path.resolve(`src/templates/SingleAccessory.js`)
     const productBox = path.resolve(`src/templates/SingleBox.js`)
     const blankPage = path.resolve(`src/templates/BasicPage.js`)
-    // Create tea product pages
+    // Create pages
     queryTeas.data.teas.nodes.forEach(node => {
         createPage({
         path: `/shop/${node.slug.current}`,
         component: productTea,
         context: {
-            // The entire product is passed down as context
+            // Passing the page slug and id as context, rest of data is collected on page template
             slug: node.slug.current,
             page: node._id,
         },
@@ -74,7 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/shop/${node.slug.current}`,
         component: productAccessory,
         context: {
-            // The entire product is passed down as context
+            // Passing the page slug and id as context, rest of data is collected on page template
             slug: node.slug.current,
             page: node._id,
         },
@@ -86,7 +86,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/shop/${node.slug.current}`,
         component: productBox,
         context: {
-            // The entire product is passed down as context
+            // Passing the page slug and id as context, rest of data is collected on page template
             slug: node.slug.current,
             page: node._id,
         },
@@ -98,7 +98,7 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/${node.slug.current}`,
         component: blankPage,
         context: {
-            // The entire product is passed down as context
+            // The entire page is passed down as context
             slug: node.slug.current,
             page: node._id,
         },
