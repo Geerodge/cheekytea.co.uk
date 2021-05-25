@@ -55,7 +55,7 @@ function SingleTea({ teas }) {
             </Link>
             <p>from {formatMoney(teas.product_options[0].price / 100) + ' inc VAT'}</p>
             {/* <p className="tea-description">{teas.short_description.substring(0, 200)}</p> */}
-            <button>Add to basket</button>
+            {/* <button>View</button> */}
         </SingleProductStyles>
     )
 }
@@ -74,7 +74,7 @@ function SingleAccessory({ accessories }) {
             </Link>
             <p>{formatMoney(accessories.price / 100) + ' inc VAT'}</p>
             {/* <p className="tea-description">{teas.short_description.substring(0, 200)}</p> */}
-            <button>Add to basket</button>
+            {/* <button>Add to basket</button> */}
         </SingleProductStyles>
     )
 }
@@ -92,7 +92,7 @@ function TeaBox({ teabox }) {
             </Link>
             <p>{formatMoney(teabox.price / 100) + ' inc VAT'}</p>
             {/* <p className="tea-description">{teas.short_description.substring(0, 200)}</p> */}
-            <button>Add to basket</button>
+            {/* <button>Add to basket</button> */}
         </SingleProductStyles>
     )
 }
