@@ -86,16 +86,22 @@ const SingleTeaStyles = styled.div`
     /* Finish making product pages nice for large screens */
     @media only screen and (min-width: 768px) {
 
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas:
+        .product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas:
             "product-image product-options";
+        }
+
+        .product-image { grid-area: product-image; }
+        .product-options { grid-area: product-options; }
+
     }
 
     @media only screen and (min-width: 1000px) {
     }
 
-`;
+`
 
 export default SingleTeaStyles;
