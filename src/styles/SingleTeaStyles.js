@@ -82,7 +82,7 @@ const SingleTeaStyles = styled.div`
         margin-top: 20px;
     }
 
-    .mobile-title, {
+    .mobile-title {
         display: block;
     }
     
