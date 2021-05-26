@@ -82,6 +82,14 @@ const SingleTeaStyles = styled.div`
         margin-top: 20px;
     }
 
+    .mobile-title, {
+        display: block;
+    }
+    
+    .desktop-title, .short-description {
+        display: none;
+    }
+
 
     /* Finish making product pages nice for large screens */
     @media only screen and (min-width: 768px) {
@@ -91,11 +99,35 @@ const SingleTeaStyles = styled.div`
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr;
             grid-template-areas:
-            "product-image product-options";
+            "image-container product-options"
+            "product-info product-info";
+
+            .mobile-title {
+                display: none;
+            }
         }
 
-        .product-image { grid-area: product-image; }
-        .product-options { grid-area: product-options; }
+        .product-image { 
+            grid-area: product-image;
+            margin: 20px;
+        }
+        .product-options { 
+            grid-area: product-options;
+            margin: 20px;
+        }
+        .product-info { 
+            grid-area: product-info;
+            margin: 20px 20px 0px 20px;
+        }
+
+        .short-description {
+            display: block;
+            margin: 40px 0px;
+        }
+
+        .desktop-title {
+            display: block;
+        }
 
     }
 

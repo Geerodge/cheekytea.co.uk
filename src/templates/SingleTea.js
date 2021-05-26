@@ -57,10 +57,14 @@ let checkPrice = Number.isFinite(productPrice) ? true : null;
     return (
     <ProductStyles>
         <div className="product">
-            <h1>{teaProduct.name}</h1>
-            <Img className="product-image" fluid={teaProduct.image.asset.fluid} alt={teaProduct.name} />
-            <p className="full-price"><span className="price">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p>
+            <h1 className="mobile-title">{teaProduct.name}</h1>
+            <div className="image-container">
+                <Img className="product-image" fluid={teaProduct.image.asset.fluid} alt={teaProduct.name} />
+            </div>
             <div className="product-options">
+                <h1 className="desktop-title">{teaProduct.name}</h1>
+                <p className="full-price"><span className="price">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p>
+                <p className="short-description">{teaProduct.short_description}</p>
                 <select
                     name="sizes"
                     defaultValue={selectedWeight}
@@ -99,22 +103,24 @@ let checkPrice = Number.isFinite(productPrice) ? true : null;
                     {selectedWeight === "Select Size" ? "Please select size" : "Add to basket"}
                 </button>
             </div>
-            <h2>Description</h2>
-            <NewlineText 
-                text={teaProduct.description}
-            />
-            <h2>Did You Know...</h2>
-            <NewlineText 
-                text={teaProduct.did_you_know}
-            />
-            <h2>Brewing Instructions</h2>
-            <p>{teaProduct.brewing_instructions}</p>
-            <h2>Ingredients</h2>
-            <p>{teaProduct.ingredients}</p>
-            <h2>Allergy Information</h2>
-            <p>
-                {teaProduct.allergy ? `Dairy free, gluten free, suitable for vegetarians and vegans. Packed in a factory which handles nuts.` : ``}
-            </p>
+            <div className="product-info">
+                <h2>Description</h2>
+                <NewlineText 
+                    text={teaProduct.description}
+                />
+                <h2>Did You Know...</h2>
+                <NewlineText 
+                    text={teaProduct.did_you_know}
+                />
+                <h2>Brewing Instructions</h2>
+                <p>{teaProduct.brewing_instructions}</p>
+                <h2>Ingredients</h2>
+                <p>{teaProduct.ingredients}</p>
+                <h2>Allergy Information</h2>
+                <p>
+                    {teaProduct.allergy ? `Dairy free, gluten free, suitable for vegetarians and vegans. Packed in a factory which handles nuts.` : ``}
+                </p>
+            </div>
         </div>
     </ProductStyles>
     )
