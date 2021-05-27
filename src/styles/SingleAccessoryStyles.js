@@ -88,7 +88,59 @@ const SingleAccessoryStyles = styled.div`
         }
     }
 
+    .product-image {
+        margin-top: 20px;
+    }
+
+    .mobile-title {
+        display: block;
+    }
+    
+    .desktop-title, .short-description {
+        display: none;
+    }
+
+    .image-container {
+        margin: 20px;
+    }
+
     @media only screen and (min-width: 768px) {
+
+        .product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+            "image-container product-options"
+            "product-info product-info";
+
+            .mobile-title {
+                display: none;
+            }
+        }
+
+        .product-image { 
+            grid-area: product-image;
+            margin: 20px;
+        }
+        .product-options { 
+            grid-area: product-options;
+            margin: 20px;
+        }
+        .product-info { 
+            grid-area: product-info;
+            margin: 20px 20px 0px 20px;
+        }
+
+        .short-description {
+            display: block;
+            margin: 40px 0px;
+        }
+
+        .desktop-title {
+            display: block;
+        }
+
     }
 
     @media only screen and (min-width: 1000px) {

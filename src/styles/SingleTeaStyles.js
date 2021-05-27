@@ -91,7 +91,6 @@ const SingleTeaStyles = styled.div`
     }
 
 
-    /* Finish making product pages nice for large screens */
     @media only screen and (min-width: 768px) {
 
         .product {

@@ -88,11 +88,18 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
     return (
         <ProductStyles>
             <div className="product">
-                <h1 className="title">{teaBox.name}</h1>
-                {/* <Img className="product-image" fluid={teaBox.imagesGallery[0].asset.fluid} alt={teaBox.name} /> */}
-                <ProductGallery items={productImages} />
-                <p className="full-price"><span className="price">{formatMoney(teaBox.price / 100)}</span> inc VAT</p>
+                <h1 className="mobile-title">{teaBox.name}</h1>
+                <div className="image-container">
+                    <ProductGallery items={productImages} />
+                </div>
                 <div className="product-options">
+                    <h1 className="desktop-title">{teaBox.name}</h1>
+                    <p className="full-price"><span className="price">{formatMoney(teaBox.price / 100)}</span> inc VAT</p>
+                    <p className="short-description">
+                        <NewlineText 
+                            text={teaBox.short_description}
+                        />
+                    </p>
                     <div className="quantity">
                         <button type="button" onClick={decrease}>-</button>
                         <input type="number" name="quantity" value={count} readOnly />
@@ -114,19 +121,21 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
                 Add to basket
                 </button>
             </div>
-            {/* <p className="full-price"><span className="price">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p> */}
-            <NewlineText 
-                text={teaBox.description}
+            <div className="product-info">
+                <h2>Description</h2>
+                <NewlineText 
+                    text={teaBox.description}
                 />
-            <h2>Inside The Cheeky Tea Box</h2>
-            <p>{includedProducts.length} packs of tea (50g each):</p>
-            {includedProducts.map((name,i) => (
-                <li>{name}</li>
-            ))}
-            <p>Accessories:</p>
-            {includedAccessories.map((name,i) => (
-                <li>{name}</li>
-            ))}       
+                <h2>Inside The Cheeky Tea Box</h2>
+                <p>{includedProducts.length} packs of tea (50g each):</p>
+                {includedProducts.map((name,i) => (
+                    <li>{name}</li>
+                ))}
+                <p>Accessories:</p>
+                {includedAccessories.map((name,i) => (
+                    <li>{name}</li>
+                ))}       
+            </div>
         </div>
     </ProductStyles>
     )
@@ -138,8 +147,9 @@ query($page: String!) {
         edges {
             node {
                 name
-                description
                 price
+                description
+                short_description
                 slug {
                     current
                 }

@@ -49,6 +49,12 @@ export default {
             description: 'Description of the tea',
         },
         {
+            name: 'short_description',
+            title: 'Short Description',
+            type: 'text',
+            description: 'Short description description of the tea',
+        },
+        {
             name: 'price',
             title: 'Price',
             type: 'number',

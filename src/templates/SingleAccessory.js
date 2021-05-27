@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import ProductStyles from "../styles/SingleAccessoryStyles";
 import ProductGallery from '../components/ImageGallery';
 
@@ -63,11 +62,18 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
 return (
     <ProductStyles>
         <div className="product">
-            <h1 className="title">{teaAccessory.name}</h1>
-            {/* <Img className="product-image" fluid={teaAccessory.imagesGallery[0].asset.fluid} alt={teaAccessory.name} /> */}
-            <ProductGallery items={productImages} />
-            <p className="full-price"><span className="price">{formatMoney(teaAccessory.price / 100)}</span> inc VAT</p>
+            <h1 className="mobile-title">{teaAccessory.name}</h1>
+            <div className="image-container">
+                <ProductGallery className="product-image" items={productImages} />
+            </div>
             <div className="product-options">
+                <h1 className="desktop-title">{teaAccessory.name}</h1>
+                <p className="full-price"><span className="price">{formatMoney(teaAccessory.price / 100)}</span> inc VAT</p>
+                <p className="short-description">
+                    <NewlineText 
+                        text={teaAccessory.short_description}
+                    />  
+                </p>
                 <div className="quantity">
                     <button type="button" onClick={decrease}>-</button>
                     <input type="number" name="quantity" value={count} readOnly />
@@ -89,10 +95,12 @@ return (
                 Add to basket
                 </button>
             </div>
-            {/* <p className="full-price"><span className="price">{checkPrice === null ? "from " + formatMoney(productOptions[0].price / 100) : formatMoney(productPrice)}</span> inc VAT</p> */}
-            <NewlineText 
-                text={teaAccessory.description}
-            />  
+            <div className="product-info">
+                <h2>Description</h2>
+                <NewlineText 
+                    text={teaAccessory.description}
+                />  
+            </div>
         </div>
     </ProductStyles>
 )
@@ -104,9 +112,10 @@ query($page: String!) {
     allSanityTeaAccessories(filter: {_id: {eq: $page}}) {
         edges {
             node {
-                description
                 name
                 price
+                description
+                short_description
                 slug {
                     current
                 }
