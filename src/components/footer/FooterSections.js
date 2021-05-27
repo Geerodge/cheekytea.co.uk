@@ -36,7 +36,7 @@ const FooterStyles = styled.div`
         }
     }
     @media only screen and (min-width: 900px) {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
         div {
             margin: 20px;
@@ -85,10 +85,6 @@ export default function FooterSections() {
                         </li>
                     </ul>
                 </nav>
-            </div>
-            <div>
-                <h3>Customer Account</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci eu lobortis elementum nibh tellus molestie.</p>
             </div>
             <div>
                 <h3>Contact Us</h3>
