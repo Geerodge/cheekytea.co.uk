@@ -4,9 +4,12 @@ require("dotenv").config({
 
 module.exports = {
     siteMetadata: {
-        title: 'Cheeky Tea',
-        siteUrl: 'https://cheekytea.co.uk',
+        title: 'Tea For A Better World',
+        titleTemplate: "%s | Cheeky Tea",
+        url: 'https://cheekytea.co.uk',
         description: 'Improve your wellbeing and help protect the planet with our loose leaf tea.',
+        image: "/images/logo.png",
+        twitterUsername: "@cheekyteashop"
     },
     plugins: [
         `gatsby-plugin-postcss`,

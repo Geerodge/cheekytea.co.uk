@@ -9,6 +9,7 @@ import { BiTimeFive } from "react-icons/bi";
 import { FaLeaf } from "react-icons/fa";
 import { GoPackage } from "react-icons/go";
 import { StaticImage } from "gatsby-plugin-image"
+import SEO from "../components/seo";
 
 const AboutStyles = styled.div`
 
@@ -139,8 +140,11 @@ const AboutStyles = styled.div`
 export default function AboutPage(props) {
     const heroImage = props.data.heroimages.nodes;
     return (
-        <>
             <AboutStyles>
+            <SEO
+                title="About"
+                description="Promoting positive mental health, sustainability and great tea. Helping to improve your health, build a better world and encourage the exploration of the outdoors."
+            />
                 <h1>About Us</h1>
                 <p>Promoting positive mental health, sustainability and great tea.</p>
                 <hr />
@@ -214,7 +218,6 @@ export default function AboutPage(props) {
                     </div>
                 </div>
             </AboutStyles>
-        </>
     )
 }
 

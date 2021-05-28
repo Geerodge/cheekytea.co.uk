@@ -28,6 +28,10 @@ const codeStyles = {
 const NotFoundPage = () => {
   return (
     <main style={pageStyles}>
+      <SEO
+        title="Oops! 404 Error"
+        description="Can't find what you're looking for!?"
+      />
       <title>Not found</title>
       <h1 style={headingStyles}>Page not found</h1>
       <p style={paragraphStyles}>

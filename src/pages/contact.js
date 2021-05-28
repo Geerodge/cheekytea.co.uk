@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ContactForm from "../components/ContactForm";
+import SEO from "../components/seo";
 
 const ContactStyles = styled.div`
     text-align: center;
@@ -79,8 +80,11 @@ const ContactStyles = styled.div`
 
 export default function ContactPage() {
     return (
-        <>
             <ContactStyles>
+                <SEO
+                    title="Contact"
+                    description="Contact us via the form on this page or alternativley email us directly. We'll respond within 4 to 5 business days Monday to Friday, but generally faster."
+                />
                 <h1>Contact Us</h1>
                 <p>Get in touch, we'll be happy to help.</p>
                 <hr />
@@ -97,6 +101,5 @@ export default function ContactPage() {
                     </div>
                 </div>
             </ContactStyles>
-        </>
     )
 }

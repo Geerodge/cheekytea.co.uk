@@ -6,6 +6,7 @@ import Footer from "./footer/Footer";
 import Nav from "./Nav"
 import SiteNotice from "./SiteNotice";
 import Typography from "../styles/Typography";
+import SEO from './seo';
 
 const SiteBorderStyles = styled.div`
     max-width: 1200px;
@@ -34,6 +35,7 @@ const ContentStyles = styled.div`
 export default function Layout({ children }) {
     return (
         <>
+            <SEO />
             <GlobalStyles />
             <Typography />
             <SiteBorderStyles>

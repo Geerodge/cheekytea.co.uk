@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import ShopHeading from "../components/shop/ShopHeading";
 import { graphql } from "gatsby";
 import Products from "../components/shop/Products";
-
+import SEO from "../components/seo";
 
 export default function IndexPage(props) {
   const heroImage = props.data.heroimages.nodes;
@@ -12,6 +12,10 @@ export default function IndexPage(props) {
   const teabox = props.data.teabox.nodes;
     return (
       <>
+        <SEO
+            title="Tea For A Better World"
+            description="We’ve sourced some of the best loose-leaf teas, from around the world, and created our own unique blends, so you can enjoy the perfect cuppa. Explore our teas today!"
+        />
         <Hero key={heroImage[0]._id}
           heading={heroImage[0].headline}
           subheading={heroImage[0].subheading}
