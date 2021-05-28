@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import ProductStyles from "../styles/SingleBoxStyles";
 import ProductGallery from '../components/ImageGallery';
 // Product data is passed in via context in gatsby-node.js
