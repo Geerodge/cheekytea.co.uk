@@ -36,6 +36,7 @@ module.exports = {
                 currency: "GBP",
                 openCartOnAdd: false,
                 useSideCart: true,
+                openCartOnAdd: true,
             },
         },
         {

@@ -93,7 +93,7 @@ let checkPrice = Number.isFinite(productPrice) ? true : null;
                     // {count} tracks product quantity using state from -/+ buttons
                     data-item-id={teaProduct._id}
                     data-item-price={productPrice}
-                    data-item-url={`/shop/${teaProduct.slug.current}`}
+                    data-item-url={`https://cheekytea.co.uk/shop/${teaProduct.slug.current}`}
                     data-item-description={teaProduct.short_description}
                     data-item-image={teaProduct.image.asset.fixed.srcWebp}
                     data-item-name={teaProduct.name}
