@@ -64,11 +64,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-Thanks to [xiaolin](https://github.com/xiaolin) for the [React carousel image gallery](https://github.com/xiaolin/react-image-gallery) that I used on the [Cheeky Tea Box](https://cheekytea/shop/tea-box) product page.
+Thanks to [xiaolin](https://github.com/xiaolin) for the [React carousel image gallery](https://github.com/xiaolin/react-image-gallery) that I used on the [Cheeky Tea Box](https://cheekytea/shop/tea-box) and [Tea Strainer](https://cheekytea/shop/tea-strainer) product page.
 
 Writing [clean code](https://github.com/ryanmcdermott/clean-code-javascript) by [Ryan McDermott](https://github.com/ryanmcdermott)
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+[Wes Bos](https://twitter.com/wesbos) and his [training courses](https://wesbos.com/courses), thank you!
 
+[Nodemailer](https://github.com/nodemailer/nodemailer), thanks for making contact forms easy peasy.
