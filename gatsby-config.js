@@ -38,5 +38,11 @@ module.exports = {
                 useSideCart: true,
             },
         },
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
+            },
+        },
     ],
 };
