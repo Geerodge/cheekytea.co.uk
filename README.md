@@ -80,3 +80,5 @@ Thanks to [xiaolin](https://github.com/xiaolin) for the [React carousel image ga
 Writing [clean code](https://github.com/ryanmcdermott/clean-code-javascript) by [Ryan McDermott](https://github.com/ryanmcdermott)
 
 [Wes Bos](https://twitter.com/wesbos) and his [training courses](https://wesbos.com/courses), thank you!
+
+[Nodemailer](https://github.com/nodemailer/nodemailer), thanks for making contact forms easy peasy.

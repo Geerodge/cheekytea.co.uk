@@ -7,16 +7,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
 
-const contactEmail = nodemailer.createTransport({
+var transport = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
-      user: "3db685653b0a5a",
-      pass: "f4779e1ff02ecf"
+      user: process.env.MAILTRAP_USER,
+      pass: process.env.MAILTRAP_PASS,
     }
-});
+  });
   
 contactEmail.verify((error) => {
     if (error) {
@@ -33,8 +32,8 @@ router.post("/contact", (req, res) => {
     const message = req.body.message; 
     const mail = {
         from: name,
-        to: "***************@gmail.com",
-        subject: "Contact Form Submission",
+        to: "geerodge@gmail.com",
+        subject: "CheekyTea.co.uk Contact Form Submission",
         html: `<p>Name: ${name}</p>
                 <p>Email: ${email}</p>
                 <p>Telephone: ${tel}</p>
