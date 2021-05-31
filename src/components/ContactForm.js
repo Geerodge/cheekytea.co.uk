@@ -28,7 +28,7 @@ const ContactFormStyles = styled.div`
 export default function ContactForm() {
   return (
     <ContactFormStyles>
-      <form name="contact" method="POST" data-netlify="true">
+      <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
       <input type="hidden" name="contact" value="contact" />
           <div>
               <label htmlFor="name">Your Name</label>
