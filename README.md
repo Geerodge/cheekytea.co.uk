@@ -18,13 +18,17 @@ You will need to install the following applications and versions.
 
 ### Environment Variables
 
-You will need the following environement variables in a .env file.
-
 GATSBY_SNIPCART_API_KEY=XXXX
 MAILTRAP_TOKEN=XXXX
 SANITY_TOKEN=XXXX
 
-You can get this from [their website](https://snipcart.com/) by creating a free account. Check out their [documentation here](https://docs.snipcart.com/v3/).
+These needs to be added an .env file in the root directory for local testing.
+
+The GATSBY_SNIPCART_API_KEY vairable is from Snipcart. You can get this from [their website](https://snipcart.com/) by creating a free account. Check out their [documentation here](https://docs.snipcart.com/v3/).
+
+The MAILTRAP_TOKEN is from [Mailtrap](https://help.mailtrap.io/article/24-mailtrap-api).
+
+The SANITY_TOKEN is from [Sanity](https://www.sanity.io/docs/keeping-your-data-safe).
 
 
 ### Installing
