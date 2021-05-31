@@ -14,21 +14,16 @@ You will need to install the following applications and versions.
 * React v16.13.1
 * Sanity v2.1.6
 * Node.js v15.5.0
-* Express.js v4.17.1
 
 ### Environment Variables
 
 GATSBY_SNIPCART_API_KEY=XXXX
 MAILTRAP_TOKEN=XXXX
 SANITY_TOKEN=XXXX
-MAILTRAP_USER=XXXX
-MAILTRAP_PASS=XXXX
 
 These needs to be added an .env file in the root directory for local testing.
 
 The GATSBY_SNIPCART_API_KEY vairable is from Snipcart. You can get this from [their website](https://snipcart.com/) by creating a free account. Check out their [documentation here](https://docs.snipcart.com/v3/).
-
-The MAILTRAP_TOKEN is from [Mailtrap](https://help.mailtrap.io/article/24-mailtrap-api).
 
 The SANITY_TOKEN is from [Sanity](https://www.sanity.io/docs/keeping-your-data-safe).
 
@@ -82,5 +77,3 @@ Thanks to [xiaolin](https://github.com/xiaolin) for the [React carousel image ga
 Writing [clean code](https://github.com/ryanmcdermott/clean-code-javascript) by [Ryan McDermott](https://github.com/ryanmcdermott)
 
 [Wes Bos](https://twitter.com/wesbos) and his [training courses](https://wesbos.com/courses), thank you!
-
-[Nodemailer](https://github.com/nodemailer/nodemailer), thanks for making contact forms easy peasy.
