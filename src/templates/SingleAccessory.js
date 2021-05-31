@@ -86,7 +86,7 @@ return (
                     // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
                     // {count} tracks product quantity using state from -/+ buttons
                     data-item-id={teaAccessory._id}
-                    data-item-price={teaAccessory.price}
+                    data-item-price={teaAccessory.price / 100}
                     data-item-url={`https://cheekytea.co.uk/shop/${teaAccessory.slug.current}`}
                     data-item-image={teaAccessory.imagesGallery[0].asset.url}
                     data-item-name={teaAccessory.name}

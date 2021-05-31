@@ -111,7 +111,7 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
                     // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
                     // {count} tracks product quantity using state from -/+ buttons
                     data-item-id={teaBox._id}
-                    data-item-price={teaBox.price}
+                    data-item-price={teaBox.price / 100}
                     data-item-url={`https://cheekytea.co.uk/shop/${teaBox.slug.current}`}
                     data-item-image={teaBox.tea[0].image.asset.fluid.src}
                     data-item-name={teaBox.name}
