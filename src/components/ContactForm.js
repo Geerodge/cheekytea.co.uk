@@ -27,24 +27,27 @@ const ContactFormStyles = styled.div`
 
 export default function ContactForm() {
   <ContactFormStyles>
-    <form name="contact">
+    <form name="contact" method="POST" data-netlify="true">
         <div>
             <label htmlFor="name">Your Name</label>
-            <input type="text" id="name" required />
+            <input type="text" id="name" name="name" required />
         </div>
         <div>
             <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" required />
+            <input type="email" id="email" name="email" required />
         </div>
         <div>
             <label htmlFor="tel">Telephone</label>
-            <input type="tel" id="tel" required />
+            <input type="tel" id="tel" name="tel" required />
         </div>
         <div>
             <label htmlFor="message">Message</label>
-            <textarea id="message" required />
+            <textarea id="message" name="message" required />
         </div>
-        <button type="submit">{status}</button>
+        <div>
+            <div data-netlify-recaptcha="true"></div>
+        </div>
+        <button type="submit">Send Message</button>
     </form>
   </ContactFormStyles>
 };
