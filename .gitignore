@@ -17,3 +17,4 @@ sanity/config
 .DS_Store
 .env
 npm-debug.log*
+server.js
