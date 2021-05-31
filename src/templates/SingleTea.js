@@ -91,7 +91,7 @@ let checkPrice = Number.isFinite(productPrice) ? true : null;
                     // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
                     // {selectedWeight} tracks weight selected from options dropdown
                     // {count} tracks product quantity using state from -/+ buttons
-                    data-item-id={teaProduct.name}
+                    data-item-id={teaProduct._id}
                     data-item-price={productPrice}
                     data-item-url={`/shop/${teaProduct.slug.current}`}
                     data-item-description={teaProduct.short_description}
