@@ -99,6 +99,7 @@ let checkPrice = Number.isFinite(productPrice) ? true : null;
                     data-item-name={teaProduct.name}
                     data-item-custom1-size={selectedWeight}
                     data-item-custom2-quantity={count}
+                    data-item-has-taxes-included="true"
                 >
                     {selectedWeight === "Select Size" ? "Please select size" : "Add to basket"}
                 </button>

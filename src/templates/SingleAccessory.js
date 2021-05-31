@@ -91,6 +91,7 @@ return (
                     data-item-image={teaAccessory.imagesGallery[0].asset.url}
                     data-item-name={teaAccessory.name}
                     data-item-custom2-quantity={count}
+                    data-item-has-taxes-included="true"
                 >
                 Add to basket
                 </button>

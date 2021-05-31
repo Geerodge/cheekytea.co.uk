@@ -116,6 +116,7 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
                     data-item-image={teaBox.tea[0].image.asset.fluid.src}
                     data-item-name={teaBox.name}
                     data-item-custom2-quantity={count}
+                    data-item-has-taxes-included="true"
                 >
                 Add to basket
                 </button>
