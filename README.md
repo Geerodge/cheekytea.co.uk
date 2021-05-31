@@ -21,6 +21,8 @@ You will need to install the following applications and versions.
 GATSBY_SNIPCART_API_KEY=XXXX
 MAILTRAP_TOKEN=XXXX
 SANITY_TOKEN=XXXX
+MAILTRAP_USER=XXXX
+MAILTRAP_PASS=XXXX
 
 These needs to be added an .env file in the root directory for local testing.
 
