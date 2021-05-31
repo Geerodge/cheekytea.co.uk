@@ -16,7 +16,13 @@ You will need to install the following applications and versions.
 * Node.js v15.5.0
 * Express.js v4.17.1
 
-You will also need an API key from Snipcart. This needs to be added an .env file in the root directory.
+### Environment Variables
+
+You will need the following environement variables in a .env file.
+
+GATSBY_SNIPCART_API_KEY=XXXX
+MAILTRAP_TOKEN=XXXX
+SANITY_TOKEN=XXXX
 
 You can get this from [their website](https://snipcart.com/) by creating a free account. Check out their [documentation here](https://docs.snipcart.com/v3/).
 
@@ -61,6 +67,7 @@ Built using React, Gatsby and Sanity, with Snipcart for Ecommerce/shopping cart.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
 
 ## Acknowledgments
 
