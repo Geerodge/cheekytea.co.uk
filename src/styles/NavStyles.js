@@ -136,7 +136,7 @@ img {
     font-size: 1.8rem;
     top: -15px;
     position: relative;
-    margin-left: -7px;
+    margin-left: -15px;
 }
 
 @media only screen and (min-width: 768px) {
