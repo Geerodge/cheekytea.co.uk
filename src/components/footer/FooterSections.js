@@ -36,7 +36,7 @@ const FooterStyles = styled.div`
         }
     }
     @media only screen and (min-width: 900px) {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 1rem;
         div {
             margin: 20px;
@@ -82,6 +82,19 @@ export default function FooterSections() {
                         </li>
                         <li>
                             <Link to="/privacy-policy">Privacy Policy</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <h3>Customer Account</h3>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="#" className="snipcart-customer-signin">My Account</Link>
+                        </li>
+                        <li>
+                            <Link to="#" className="snipcart-checkout">View Basket</Link>
                         </li>
                     </ul>
                 </nav>
