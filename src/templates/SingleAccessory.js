@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { graphql } from "gatsby";
 import ProductStyles from "../styles/SingleAccessoryStyles";
 import ProductGallery from '../components/ImageGallery';
+import SEO from "../components/seo";
 
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTeaAccessories } }) {
@@ -61,6 +62,10 @@ export default function SingleProductPage({ pageContext: { page }, data: { allSa
 
 return (
     <ProductStyles>
+        <SEO
+            title={teaAccessory.name}
+            description={teaAccessory.short_description}
+        />
         <div className="product">
             <h1 className="mobile-title">{teaAccessory.name}</h1>
             <div className="image-container">
