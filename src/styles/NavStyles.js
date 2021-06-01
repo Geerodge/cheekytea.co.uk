@@ -117,16 +117,15 @@ img {
 .desktop-cart {
     display: none;
 }
-.snipcart-basket {
+.snipcart-basket, .snipcart-customer-signin {
     cursor: pointer;
     vertical-align: text-bottom;
     font-size: 2.5rem;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .snipcart-checkout {
     text-align: center;
     span:nth-child(1) {
-        border-bottom: 1px solid var(--black);
         padding: 10px;
     }
 }

@@ -38,6 +38,7 @@ export default function Nav() {
                 <li>
                     <Link to="#" className="snipcart-checkout">
                         <span>
+                            <VscAccount className="snipcart-customer-signin" />
                             <FiShoppingCart className="snipcart-basket" />
                             <span className="snipcart-items-count"></span>
                             <span className="snipcart-total-price"></span>
