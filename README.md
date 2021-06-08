@@ -18,7 +18,6 @@ You will need to install the following applications and versions.
 ### Environment Variables
 
 GATSBY_SNIPCART_API_KEY=XXXX
-MAILTRAP_TOKEN=XXXX
 SANITY_TOKEN=XXXX
 
 These needs to be added an .env file in the root directory for local testing.
@@ -44,12 +43,9 @@ Install all the required packages
 npm install
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+If, like myself, you decide to deploy with [Netlify](https://www.netlify.com) remember to add the environment variables in the "Build &amp; Deploy" section.
 
 ## Built With
 
