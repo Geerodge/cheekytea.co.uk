@@ -17,8 +17,8 @@ You will need to install the following applications and versions.
 
 ### Environment Variables
 
-GATSBY_SNIPCART_API_KEY=XXXX
-SANITY_TOKEN=XXXX
+* GATSBY_SNIPCART_API_KEY=XXXX
+* SANITY_TOKEN=XXXX
 
 These needs to be added an .env file in the root directory for local testing.
 
