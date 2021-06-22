@@ -29,8 +29,6 @@ The SANITY_TOKEN is from [Sanity](https://www.sanity.io/docs/keeping-your-data-s
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development environment running
-
 Clone the repository
 
 ```
