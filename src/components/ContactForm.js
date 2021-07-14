@@ -22,6 +22,9 @@ const ContactFormStyles = styled.div`
         button {
             float: right;
         }
+        p {
+            text-align: center;
+        }
     }
 `;
 
@@ -55,6 +58,12 @@ export default function ContactForm() {
 
     return (
         <ContactFormStyles>
+            {success && (
+                <>
+                    <p>Thanks for your message! <span role="img" aria-label="Partying Face">🥳</span></p>
+                    <p>We'll be in contact shortly.</p>
+                </>
+            )}
             <form
                 id="contact"
                 name="contact"
@@ -82,9 +91,6 @@ export default function ContactForm() {
                 <textarea id="message" name="message" required />
             </div>
             <button type="submit">Send message</button>
-                {success && (
-                    <p style={{ color: "white" }}>Thanks for your message! <span role="img" aria-label="Partying Face">🥳</span></p>
-                )}
         </form>
         </ContactFormStyles>
     )
