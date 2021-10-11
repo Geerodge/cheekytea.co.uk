@@ -19,6 +19,11 @@ export default {
             }
         },
         {
+            name: 'sku',
+            title: 'Product SKU',
+            type: 'string',
+        },
+        {
             name: 'name',
             title: 'Product Name',
             type: 'string',

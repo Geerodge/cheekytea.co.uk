@@ -3,6 +3,7 @@ import Img from "gatsby-image";
 import { graphql } from "gatsby";
 import ProductStyles from "../styles/SingleTeaStyles";
 import SEO from "../components/seo";
+import getStripe from "../utils/stripejs";
 
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTea } }) {
@@ -55,6 +56,48 @@ let productOptions = teaProduct.product_options;
 let productPrice = findElement(productOptions, selectedWeight) / 100;
 let checkPrice = Number.isFinite(productPrice) ? true : null;
 
+// Handles Stripe Payment 
+        // https://www.learnwithjason.dev/sell-products-on-the-jamstack 40mins
+const handleAddCartSubmit = async event => {
+        event.preventDefault();
+
+        // const stripe = await getStripe()
+          
+        const data = {
+          sku: teaProduct.sku,
+          name: teaProduct.name,
+          description: teaProduct.short_description,
+          image: "",
+          quantity: Number(count),
+          amount: productOptions[0].price,
+          currency: "GBP",
+          size: selectedWeight
+        };
+
+        const dataTest = JSON.stringify(data);
+        console.log(dataTest);
+  
+        const response = await fetch('/.netlify/functions/create-checkout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        }).then(res => res.json());
+
+        console.log(response);
+  
+    // const stripe = Stripe(response.publishableKey);
+    // const { error } = await stripe.redirectToCheckout({
+    //   sessionId: response.sessionId,
+    // });
+  
+    // if (error) {
+    //   console.error(error);
+    // }
+    
+}
+
     return (
     <ProductStyles>
         <SEO
@@ -90,21 +133,22 @@ let checkPrice = Number.isFinite(productPrice) ? true : null;
                 </div>
                 <button 
                     type="button" 
-                    className="snipcart-add-item addcart" 
+                    className="snipcart-add-item addcart"
                     disabled={selectedWeight === "Select Size" ? true : null}
+                    onClick={handleAddCartSubmit}
 
                     // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
                     // {selectedWeight} tracks weight selected from options dropdown
                     // {count} tracks product quantity using state from -/+ buttons
-                    data-item-id={teaProduct._id}
-                    data-item-price={productPrice}
-                    data-item-url={`https://cheekytea.co.uk/shop/${teaProduct.slug.current}`}
-                    data-item-description={teaProduct.short_description}
-                    data-item-image={teaProduct.image.asset.fixed.srcWebp}
-                    data-item-name={teaProduct.name}
-                    data-item-custom1-size={selectedWeight}
-                    data-item-quantity={count}
-                    data-item-has-taxes-included="true"
+                    // data-item-id={teaProduct._id}
+                    // data-item-price={productPrice}
+                    // data-item-url={`https://cheekytea.co.uk/shop/${teaProduct.slug.current}`}
+                    // data-item-description={teaProduct.short_description}
+                    // data-item-image={teaProduct.image.asset.fixed.srcWebp}
+                    // data-item-name={teaProduct.name}
+                    // data-item-custom1-size={selectedWeight}
+                    // data-item-quantity={count}
+                    // data-item-has-taxes-included="true"
                 >
                     {selectedWeight === "Select Size" ? "Please select size" : "Add to basket"}
                 </button>
@@ -147,6 +191,7 @@ query($page: String!) {
                 ingredients
                 name
                 short_description
+                sku
                 product_options {
                     width
                     weight

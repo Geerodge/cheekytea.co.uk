@@ -28,17 +28,25 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-snipcart-advanced`,
+            resolve: `gatsby-source-stripe`,
             options: {
-                version: "3.0.29",
-                publicApiKey: process.env.GATSBY_SNIPCART_API_KEY,
-                defaultLang: "en-GB",
-                currency: "GBP",
-                openCartOnAdd: false,
-                useSideCart: true,
-                openCartOnAdd: true,
+                objects: ["Price"],
+                secretKey: process.env.GATSBY_STRIPE_SECRET_KEY,
+                downloadFiles: false,
             },
         },
+        // {
+        //     resolve: `gatsby-plugin-snipcart-advanced`,
+        //     options: {
+        //         version: "3.0.29",
+        //         publicApiKey: process.env.GATSBY_SNIPCART_API_KEY,
+        //         defaultLang: "en-GB",
+        //         currency: "GBP",
+        //         openCartOnAdd: false,
+        //         useSideCart: true,
+        //         openCartOnAdd: true,
+        //     },
+        // },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
