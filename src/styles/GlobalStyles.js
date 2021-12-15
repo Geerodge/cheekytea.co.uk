@@ -66,6 +66,10 @@ const GlobalStyles = createGlobalStyle`
         }
     }
 
+    h1 {
+      font-size: 2.5em;
+    }
+
 `;
 
 export default GlobalStyles;

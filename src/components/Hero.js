@@ -20,16 +20,14 @@ const HeroStyles = styled.div`
             z-index: 1;
         }
         h1 {
-            background: rgba(89, 155, 68, 0.6);
-            padding: 0.5rem;
+            color: var(--white);
+            font-weight: bold;
         }
         p {
             font-size: 2.5rem;
             line-height: 1.65;
-        }
-        span {
-            background: rgba(89, 155, 68, 0.6);
-            padding: 0.5rem;
+            color: var(--white);
+            font-weight: bold;
         }
     }
     .gatsby-image-wrapper {
@@ -37,10 +35,9 @@ const HeroStyles = styled.div`
         height: 100%;
         width: 100%;
         z-index: 0;
-    }
-    .glow {
-        color: var(--white);
-        text-shadow: 1px 1px 0px #fff, 2px 2px 1px rgba(0,0,0,0.70);
+        & img {
+            filter: brightness(80%);
+        }
     }
     a.button {
         display: inline-block;
@@ -50,13 +47,14 @@ const HeroStyles = styled.div`
         border-radius: 0.12em;
         box-sizing: border-box;
         text-decoration: none;
-        font-weight:500;
-        color:#FFFFFF;
+        font-weight: 500;
+        color: #000000;
+        background-color: #FFFFFF;
         transition: all 0.2s;
         width: 60%;
         &:hover{
-            color:#000000;
-            background-color:#FFFFFF;
+            color: #FFFFFF;
+            background-color: unset;
         }
     }
     @media all and (max-width: 30em) {
@@ -116,8 +114,8 @@ export default function Hero(props) {
             <HeroStyles>
                 <header>
                     <div>
-                        <h1 className="glow">{props.heading}</h1>
-                        <p className="glow"><span>{props.subheading}</span></p>
+                        <h1>{props.heading}</h1>
+                        <p>{props.subheading}</p>
                         {props.button == null ? '' : <Link className="button" to={props.link}>{props.button}</Link>}
                     </div>
                     <Img fluid={props.imgsrc} alt={props.alt} />

@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import ProductStyles from "../styles/SingleTeaStyles";
 import SEO from "../components/seo";
 import getStripe from "../utils/stripejs";
+import { useShoppingCart } from 'use-shopping-cart'
 
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTea } }) {
@@ -57,46 +58,38 @@ let productPrice = findElement(productOptions, selectedWeight) / 100;
 let checkPrice = Number.isFinite(productPrice) ? true : null;
 
 // Handles Stripe Payment 
-        // https://www.learnwithjason.dev/sell-products-on-the-jamstack 40mins
-const handleAddCartSubmit = async event => {
-        event.preventDefault();
-
-        // const stripe = await getStripe()
-          
-        const data = {
-          sku: teaProduct.sku,
-          name: teaProduct.name,
-          description: teaProduct.short_description,
-          image: "",
-          quantity: Number(count),
-          amount: productOptions[0].price,
-          currency: "GBP",
-          size: selectedWeight
-        };
-
-        const dataTest = JSON.stringify(data);
-        console.log(dataTest);
-  
-        const response = await fetch('/.netlify/functions/create-checkout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        }).then(res => res.json());
-
-        console.log(response);
-  
-    // const stripe = Stripe(response.publishableKey);
-    // const { error } = await stripe.redirectToCheckout({
-    //   sessionId: response.sessionId,
-    // });
-  
-    // if (error) {
-    //   console.error(error);
-    // }
+const { addItem } = useShoppingCart()
     
-}
+const data = {
+    sku: teaProduct.sku,
+    name: teaProduct.name,
+    description: teaProduct.short_description,
+    image: teaProduct.image.asset.fixed.srcWebp,
+    quantity: Number(count),
+    amount: productOptions[0].price,
+    currency: "GBP",
+    size: selectedWeight
+};
+
+const productData = [
+    {
+        name: teaProduct.name,
+        id: teaProduct.sku,
+        price: productOptions[0].price,
+        image: teaProduct.image.asset.fixed.srcWebp,
+        currency: 'GBP',
+        product_data: {
+        metadata: {
+            type: 'tea'
+        }
+        },
+        price_data: {
+        recurring: {
+            interval: 'week'
+        }
+        }
+    },
+];
 
     return (
     <ProductStyles>
@@ -135,7 +128,7 @@ const handleAddCartSubmit = async event => {
                     type="button" 
                     className="snipcart-add-item addcart"
                     disabled={selectedWeight === "Select Size" ? true : null}
-                    onClick={handleAddCartSubmit}
+                    onClick={() => addItem(teaProduct.sku)}
 
                     // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
                     // {selectedWeight} tracks weight selected from options dropdown

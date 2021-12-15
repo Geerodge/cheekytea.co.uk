@@ -7,6 +7,7 @@ import Nav from "./Nav"
 import SiteNotice from "./SiteNotice";
 import Typography from "../styles/Typography";
 import SEO from './seo';
+import { CartProvider } from 'use-shopping-cart'
 
 const SiteBorderStyles = styled.div`
     max-width: 1200px;
@@ -34,7 +35,16 @@ const ContentStyles = styled.div`
 
 export default function Layout({ children }) {
     return (
-        <>
+        <CartProvider
+            mode="payment"
+            cartMode="client-only"
+            stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY}
+            successUrl="stripe.com"
+            cancelUrl="twitter.com/geerodge"
+            currency="GBP"
+            allowedCountries={['GB']}
+            billingAddressCollection={true}
+        >
             <SEO />
             <GlobalStyles />
             <Typography />
@@ -46,6 +56,6 @@ export default function Layout({ children }) {
                     <Footer />
                 </ContentStyles>
             </SiteBorderStyles>
-        </>
+        </CartProvider>
     )
 }

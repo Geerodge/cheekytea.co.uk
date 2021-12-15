@@ -27,14 +27,14 @@ module.exports = {
                 watchMode: true,
             },
         },
-        {
-            resolve: `gatsby-source-stripe`,
-            options: {
-                objects: ["Price"],
-                secretKey: process.env.GATSBY_STRIPE_SECRET_KEY,
-                downloadFiles: false,
-            },
-        },
+        // {
+        //     resolve: `gatsby-source-stripe`,
+        //     options: {
+        //         objects: ['id', 'price'],
+        //         secretKey: process.env.GATSBY_STRIPE_SECRET_KEY,
+        //         downloadFiles: false,
+        //     },
+        // },
         // {
         //     resolve: `gatsby-plugin-snipcart-advanced`,
         //     options: {
