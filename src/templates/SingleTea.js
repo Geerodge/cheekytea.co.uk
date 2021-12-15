@@ -128,7 +128,7 @@ const productData = [
                     type="button" 
                     className="snipcart-add-item addcart"
                     disabled={selectedWeight === "Select Size" ? true : null}
-                    onClick={() => addItem(teaProduct.sku)}
+                    // onClick={() => addItem(teaProduct.sku)}
 
                     // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
                     // {selectedWeight} tracks weight selected from options dropdown

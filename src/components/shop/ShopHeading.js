@@ -13,12 +13,10 @@ const ShopStyles = styled.div`
 
 export default function Shop(props) {
     return (
-        <>
         <ShopStyles>
             <h1>{props.heading}</h1>
             <p>{props.subheading}</p>
             <hr />
         </ShopStyles>
-        </>
     )
 }

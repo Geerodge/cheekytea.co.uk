@@ -32,9 +32,15 @@ const SingleProductStyles = styled.div`
             text-decoration: underline;
         }
     }
+    a.product-link:hover + a.product-heading-link {
+        color: var(--green);
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        text-decoration: underline;
+    }
     button {
         margin: 0 10px;
-        }
+    }
 `;
 
 // Makes the price of each product look nice
@@ -47,7 +53,7 @@ const formatMoney = Intl.NumberFormat('en-GB', {
 function SingleTea({ teas }) {
     return (
         <SingleProductStyles>
-            <Link to={`/shop/${teas.slug.current}`}>
+            <Link to={`/shop/${teas.slug.current}`} className="product-link">
                 <Img fluid={teas.image.asset.fluid} alt={teas.name} />
             </Link>
             <Link className="product-heading-link" to={`/shop/${teas.slug.current}`}>
@@ -66,7 +72,7 @@ function SingleAccessory({ accessories }) {
     // const hoverImage = productImages[1].asset.fluid;
     return (
         <SingleProductStyles>
-            <Link to={`/shop/${accessories.slug.current}`}>
+            <Link to={`/shop/${accessories.slug.current}`} className="product-link">
                 <Img fluid={mainImage} alt={accessories.name} />
             </Link>
             <Link className="product-heading-link" to={`/shop/${accessories.slug.current}`}>
@@ -84,7 +90,7 @@ function TeaBox({ teabox }) {
     const mainImage = productImages[0].asset.fluid;
     return (
         <SingleProductStyles>
-            <Link to={`/shop/${teabox.slug.current}`}>
+            <Link to={`/shop/${teabox.slug.current}`} className="product-link">
                 <Img fluid={mainImage} alt={teabox.name} />
             </Link>
             <Link className="product-heading-link" to={`/shop/${teabox.slug.current}`}>

@@ -19,12 +19,12 @@ const HeroStyles = styled.div`
         div {
             z-index: 1;
         }
-        h1 {
+        h2 {
             color: var(--white);
             font-weight: bold;
+            font-size: 5rem;
         }
         p {
-            font-size: 2.5rem;
             line-height: 1.65;
             color: var(--white);
             font-weight: bold;
@@ -110,17 +110,15 @@ const HeroStyles = styled.div`
 
 export default function Hero(props) {
     return (
-        <>
-            <HeroStyles>
-                <header>
-                    <div>
-                        <h1>{props.heading}</h1>
-                        <p>{props.subheading}</p>
-                        {props.button == null ? '' : <Link className="button" to={props.link}>{props.button}</Link>}
-                    </div>
-                    <Img fluid={props.imgsrc} alt={props.alt} />
-                </header>
-            </HeroStyles>
-        </>
+        <HeroStyles>
+            <header>
+                <div>
+                    <h2>{props.heading}</h2>
+                    <p>{props.subheading}</p>
+                    {props.button == null ? '' : <Link className="button" to={props.link}>{props.button}</Link>}
+                </div>
+                <Img fluid={props.imgsrc} alt={props.alt} />
+            </header>
+        </HeroStyles>
     )
 }
