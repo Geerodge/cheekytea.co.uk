@@ -47,13 +47,14 @@ const BannerStyles = styled.div`
         border-radius: 0.12em;
         box-sizing: border-box;
         text-decoration: none;
-        font-weight:500;
-        color:#FFFFFF;
+        font-weight: 500;
+        color: #000000;
+        background-color: #FFFFFF;
         transition: all 0.2s;
         margin: 0 auto;
         &:hover{
-            color:#000000;
-            background-color:#FFFFFF;
+            color: #FFFFFF;
+            background-color: unset;
         }
     }
     @media all and (max-width:30em) {

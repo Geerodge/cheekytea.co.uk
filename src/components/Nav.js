@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import logo from "../assets/images/logo.png";
 import NavStyles from "../styles/NavStyles";
 import { FiShoppingCart } from "react-icons/fi";
-import { VscAccount } from "react-icons/vsc";
+// import { VscAccount } from "react-icons/vsc";
 
 export default function Nav() {
     // Hides mobile menu on menu click

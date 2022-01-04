@@ -52,7 +52,6 @@ const HeroStyles = styled.div`
         color: #000000;
         background-color: #FFFFFF;
         transition: all 0.2s;
-        width: 60%;
         &:hover{
             color: #FFFFFF;
             background-color: unset;
