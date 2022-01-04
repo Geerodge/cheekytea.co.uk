@@ -3,8 +3,6 @@ import Img from "gatsby-image";
 import { graphql } from "gatsby";
 import ProductStyles from "../styles/SingleTeaStyles";
 import SEO from "../components/seo";
-import getStripe from "../utils/stripejs";
-import { useShoppingCart } from 'use-shopping-cart'
 
 // Product data is passed in via context in gatsby-node.js
 export default function SingleProductPage({ pageContext: { page }, data: { allSanityTea } }) {
@@ -57,40 +55,6 @@ let productOptions = teaProduct.product_options;
 let productPrice = findElement(productOptions, selectedWeight) / 100;
 let checkPrice = Number.isFinite(productPrice) ? true : null;
 
-// Handles Stripe Payment 
-const { addItem } = useShoppingCart()
-    
-const data = {
-    sku: teaProduct.sku,
-    name: teaProduct.name,
-    description: teaProduct.short_description,
-    image: teaProduct.image.asset.fixed.srcWebp,
-    quantity: Number(count),
-    amount: productOptions[0].price,
-    currency: "GBP",
-    size: selectedWeight
-};
-
-const productData = [
-    {
-        name: teaProduct.name,
-        id: teaProduct.sku,
-        price: productOptions[0].price,
-        image: teaProduct.image.asset.fixed.srcWebp,
-        currency: 'GBP',
-        product_data: {
-        metadata: {
-            type: 'tea'
-        }
-        },
-        price_data: {
-        recurring: {
-            interval: 'week'
-        }
-        }
-    },
-];
-
     return (
     <ProductStyles>
         <SEO
@@ -128,20 +92,19 @@ const productData = [
                     type="button" 
                     className="snipcart-add-item addcart"
                     disabled={selectedWeight === "Select Size" ? true : null}
-                    // onClick={() => addItem(teaProduct.sku)}
 
                     // Snipcart magic. See https://docs.snipcart.com/v3/setup/products
                     // {selectedWeight} tracks weight selected from options dropdown
                     // {count} tracks product quantity using state from -/+ buttons
-                    // data-item-id={teaProduct._id}
-                    // data-item-price={productPrice}
-                    // data-item-url={`https://cheekytea.co.uk/shop/${teaProduct.slug.current}`}
-                    // data-item-description={teaProduct.short_description}
-                    // data-item-image={teaProduct.image.asset.fixed.srcWebp}
-                    // data-item-name={teaProduct.name}
-                    // data-item-custom1-size={selectedWeight}
-                    // data-item-quantity={count}
-                    // data-item-has-taxes-included="true"
+                    data-item-id={teaProduct._id}
+                    data-item-price={productPrice}
+                    data-item-url={`https://cheekytea.co.uk/shop/${teaProduct.slug.current}`}
+                    data-item-description={teaProduct.short_description}
+                    data-item-image={teaProduct.image.asset.fixed.srcWebp}
+                    data-item-name={teaProduct.name}
+                    data-item-custom1-size={selectedWeight}
+                    data-item-quantity={count}
+                    data-item-has-taxes-included="true"
                 >
                     {selectedWeight === "Select Size" ? "Please select size" : "Add to basket"}
                 </button>

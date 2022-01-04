@@ -27,26 +27,6 @@ module.exports = {
                 watchMode: true,
             },
         },
-        // {
-        //     resolve: `gatsby-source-stripe`,
-        //     options: {
-        //         objects: ['id', 'price'],
-        //         secretKey: process.env.GATSBY_STRIPE_SECRET_KEY,
-        //         downloadFiles: false,
-        //     },
-        // },
-        // {
-        //     resolve: `gatsby-plugin-snipcart-advanced`,
-        //     options: {
-        //         version: "3.0.29",
-        //         publicApiKey: process.env.GATSBY_SNIPCART_API_KEY,
-        //         defaultLang: "en-GB",
-        //         currency: "GBP",
-        //         openCartOnAdd: false,
-        //         useSideCart: true,
-        //         openCartOnAdd: true,
-        //     },
-        // },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
@@ -56,12 +36,24 @@ module.exports = {
         {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
-              // You can add multiple tracking ids and a pageview event will be fired for all of them.
-              trackingIds: [
+                // You can add multiple tracking ids and a pageview event will be fired for all of them.
+                trackingIds: [
                 "UA-127744125-1", // Google Analytics / GA
                 "880579346", // Google Ads / Adwords / AW
-              ],
+                ],
             },
-          },
+        },
+        {
+            resolve: `gatsby-plugin-snipcart-advanced`,
+            options: {
+                version: "3.0.29",
+                publicApiKey: process.env.GATSBY_SNIPCART_API_KEY,
+                defaultLang: "en-GB",
+                currency: "GBP",
+                openCartOnAdd: false,
+                useSideCart: true,
+                openCartOnAdd: true,
+            },
+        },
     ],
 };
