@@ -20,7 +20,7 @@ export default function Nav() {
                 <Link to="/" className="logo-nav"><img src={logo} alt="logo" id="logo"/></Link>
                 <div className="desktop-cart">
                     <div className="snipcart-wrapper">
-                        <VscAccount className="snipcart-customer-signin" />
+                        {/* <VscAccount className="snipcart-customer-signin" /> */}
                         <Link to="#" className="snipcart-checkout">
                             <span>
                                 <FiShoppingCart className="snipcart-basket" />
