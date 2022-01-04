@@ -2,12 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Hero from "../components/Hero";
 import { graphql, Link } from "gatsby";
-import { FaRecycle } from "react-icons/fa";
 import { BiDonateHeart } from "react-icons/bi";
-import { GiTeapotLeaves } from "react-icons/gi";
-import { BiTimeFive } from "react-icons/bi";
-import { FaLeaf } from "react-icons/fa";
-import { GoPackage } from "react-icons/go";
 import { StaticImage } from "gatsby-plugin-image"
 import SEO from "../components/seo";
 
@@ -36,10 +31,14 @@ const AboutStyles = styled.div`
         h2 {
             display: inline;
             padding-right: 10px;
+            font-size: 2em;
         }
         ul {
             text-align: left;
             padding: 0 0 0 25px;
+        }
+        ul li {
+            margin-bottom: 20px;
         }
     }
 
@@ -60,6 +59,17 @@ const AboutStyles = styled.div`
     .section8 {
         ul {
             margin-bottom: 50px;
+        }
+    }
+
+    @media only screen and (min-width: 360px) {
+        .grid-container {
+            h2 {
+                font-size: 1.5em;
+            }
+            .section4 p {
+                text-align: center;
+            }
         }
     }
 
@@ -158,7 +168,7 @@ export default function AboutPage(props) {
                 />
                 <div className="grid-container">
                     <div className="section1">
-                        <h2>Our Loose Leaf Tea</h2><GiTeapotLeaves size={42} className="react-icons" />
+                        <h2>Our Loose Leaf Tea</h2>
                         <p>We’ve sourced some of the best loose-leaf teas, from around the world, and created our own unique blends, so you can enjoy the perfect cuppa.</p>
                         <p>We believe that the enjoyment of a cuppa doesn’t just lie within the quality of the tea leaf (although it is important!), it’s also about taking the time to enjoy the moment.</p>
                         <p><Link to="/shop">Visit our tea shop now</Link> and grab yourself a cheeky cuppa!</p>
@@ -167,7 +177,7 @@ export default function AboutPage(props) {
                     <StaticImage src="../assets/images/tea-drinking.jpg" alt="Drinking Tea" placeholder="blurred" />
                     </div>
                     <div className="section3">
-                        <h2>Making Time for You</h2><BiTimeFive size={32} className="react-icons" />
+                        <h2>Making Time for You</h2>
                         <p>Rushing through life without paying much attention to the present moment or the world around us is all too easy.</p>
                         <p>Some people call it awareness, others wellness. Whatever you want to call it, there are simple “good habits” and activities that can help reconnect ourselves with our bodies and the sensations they experience.</p>
                         <p>There are steps you can take to develop and improve your mental wellbeing, and we want to help.</p>      
@@ -182,7 +192,7 @@ export default function AboutPage(props) {
                         <hr />
                     </div>
                     <div className="section5">
-                        <h2>Sustainably and Ethically Sourced</h2><FaRecycle size={32} className="react-icons" />
+                        <h2>Sustainably and Ethically Sourced</h2>
                         <p>All our teas are carefully sourced from tea estates, tea farmers and trusted suppliers around the world, then hand blended and packed back in the United Kingdom.</p>
                         <ul>
                             <li>Everything can be traced back to source.</li>
@@ -194,7 +204,7 @@ export default function AboutPage(props) {
                         <StaticImage src="../assets/images/sustainably-sourced-tea.jpg" alt="Sustainably Sourced Tea" placeholder="blurred" />
                     </div>
                     <div className="section7">
-                        <h2>Packaging and Environmental Impact</h2><FaLeaf size={32} className="react-icons" />
+                        <h2>Packaging and Environmental Impact</h2>
                         <p>All of our postal envelopes are made from quality recycled 450gsm cardboard, with a frustration free opening cord, and are 100% recyclable.</p>
                         <p>Our postal cardboard boxes are also 100% recyclable and made from <a href="https://www.fsc-uk.org/en-uk" target="_blank" rel="noreferrer">FSC® certified</a> environmentally friendly material.</p>
                         <p>The pouches for our loose leaf tea provide excellent barrier properties against water vapour and oxygen. This makes them the preferred packaging option for a wide range of industries where product freshness and shelf life are a priority, and our laminates are all FDA food grade approved.</p>
@@ -204,7 +214,7 @@ export default function AboutPage(props) {
                         <p>Due to their resealable nature they are also reusable.</p>
                     </div>
                     <div className="section8">
-                        <h2>Sustainable Packaging Strategy</h2><GoPackage size={32} className="react-icons" />
+                        <h2>Sustainable Packaging Strategy</h2>
                         <p>Each year in the EU, <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php/Packaging_waste_statistics" target="_blank" rel="noreferrer">more than 160kg</a> of packaging waste is generated for each inhabitant. For going green, this area should be a top priority.</p>
                         <p>Our sustainable packaging strategy has three key elements:</p>
                         <ul>

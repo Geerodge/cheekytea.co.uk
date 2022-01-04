@@ -28,6 +28,7 @@ const HeroStyles = styled.div`
             line-height: 1.65;
             color: var(--white);
             font-weight: bold;
+            padding: 20px;
         }
     }
     .gatsby-image-wrapper {

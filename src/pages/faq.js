@@ -12,6 +12,18 @@ const FaqStyles = styled.div`
         margin-top: 50px;
         margin-bottom: 50px;
     }
+
+    @media only screen and (min-width: 360px) {
+        h1 {
+            font-size: 2em;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        h1 {
+            font-size: 2.5em;
+        }
+    }
 `;
 
 export default function FaqPage(props) {

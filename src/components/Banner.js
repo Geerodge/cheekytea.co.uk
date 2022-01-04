@@ -8,7 +8,7 @@ const BannerStyles = styled.div`
         align-items: center;
         text-align: center;
         margin: 50px 0 50px 0;
-        padding: 50px 30px 50px 30px;
+        padding: 50px 25px 50px 25px;
         background-color: #599b44;
         color: white;
         position: relative;

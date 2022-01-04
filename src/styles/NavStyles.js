@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const NavStyles = styled.nav`
 
+text-align: center;
+
 nav ul {
     margin: 0;
     padding: 0;

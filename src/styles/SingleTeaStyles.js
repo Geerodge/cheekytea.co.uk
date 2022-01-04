@@ -90,6 +90,11 @@ const SingleTeaStyles = styled.div`
         display: none;
     }
 
+    @media only screen and (min-width: 360px) {
+        h1 {
+            font-size: 2em;
+        }
+    }
 
     @media only screen and (min-width: 768px) {
 
@@ -130,7 +135,10 @@ const SingleTeaStyles = styled.div`
 
     }
 
-    @media only screen and (min-width: 1000px) {
+    @media only screen and (min-width: 1024px) {
+        h1 {
+            font-size: 2.5em;
+        }
     }
 
 `

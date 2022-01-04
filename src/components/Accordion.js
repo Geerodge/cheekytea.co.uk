@@ -27,13 +27,19 @@ const AccordionStyles = styled.div`
             background-color: #eee;
         }
     }
-    p {
-        margin-left: 35px;
+
+    @media only screen and (min-width: 360px) {
+        .accordion-body p {
+            margin-left: 0px;
+        }
     }
 
     @media only screen and (min-width: 750px) {
         .accordion {
             width: 70%;
+        }
+        .accordion-body p {
+            margin-left: 35px;
         }
     }
 `;
