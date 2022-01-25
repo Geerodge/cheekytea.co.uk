@@ -22,7 +22,7 @@ const HeroStyles = styled.div`
         h2 {
             color: var(--white);
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.5em;
             padding: 20px;
         }
         p {
