@@ -104,10 +104,8 @@ const SingleBoxStyles = styled.div`
         margin: 20px;
     }
 
-    @media only screen and (min-width: 360px) {
-        h1 {
-            font-size: 1.5em;
-        }
+    h1 {
+        font-size: 1.5em;
     }
 
     @media only screen and (min-width: 768px) {

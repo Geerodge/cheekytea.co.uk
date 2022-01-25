@@ -22,7 +22,8 @@ const HeroStyles = styled.div`
         h2 {
             color: var(--white);
             font-weight: bold;
-            font-size: 5rem;
+            font-size: 1rem;
+            padding: 20px;
         }
         p {
             line-height: 1.65;
@@ -66,6 +67,17 @@ const HeroStyles = styled.div`
         }
     }
 
+    @media only screen and (min-width: 320px) {
+        header {
+            h2 {
+                font-size: 1.5em;
+            }
+            a.button {
+                width: 60%;
+            }
+        }
+    }
+
     @media only screen and (min-width: 480px) {
         header {
             p span {
@@ -73,6 +85,9 @@ const HeroStyles = styled.div`
             }
             a.button {
                 width: 50%;
+            }
+            h2 {
+                font-size: 2em;
             }
         }
     }

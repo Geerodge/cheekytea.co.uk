@@ -10,9 +10,9 @@ const ShopStyles = styled.div`
         margin-bottom: 50px;
     }
 
-    @media only screen and (min-width: 360px) {
+    @media only screen and (min-width: 320px) {
         h1 {
-            font-size: 2em;
+            font-size: 1.5em;
         }
     }
 

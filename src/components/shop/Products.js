@@ -5,9 +5,13 @@ import styled from "styled-components";
 
 const ProductStyles = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 4rem;
-    grid-auto-rows: auto auto 500px;
+    grid-auto-rows: auto auto auto;
+
+    @media only screen and (min-width: 996px) {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
 `;
 
 const SingleProductStyles = styled.div`

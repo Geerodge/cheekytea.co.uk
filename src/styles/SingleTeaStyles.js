@@ -90,10 +90,8 @@ const SingleTeaStyles = styled.div`
         display: none;
     }
 
-    @media only screen and (min-width: 360px) {
-        h1 {
-            font-size: 2em;
-        }
+    h1 {
+        font-size: 1.5em;
     }
 
     @media only screen and (min-width: 768px) {
