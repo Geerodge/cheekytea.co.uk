@@ -12,8 +12,7 @@ You will need to install the following applications and versions.
 
 * Gatsby v2.26.1
 * React v16.13.1
-* Sanity v2.1.6
-* Node.js v15.5.0
+* Sanity v2.23.1
 
 ### Environment Variables
 
