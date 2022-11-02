@@ -86,6 +86,9 @@ export default function FooterSections() {
                         <li>
                             <Link to="/privacy-policy">Privacy Policy</Link>
                         </li>
+                        <li>
+                            <Link to="/wholesale-tea">Wholesale Tea</Link>
+                        </li>
                     </ul>
                 </nav>
             </div>
