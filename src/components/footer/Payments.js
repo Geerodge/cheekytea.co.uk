@@ -49,6 +49,7 @@ export default function Payments(props) {
                     <FaEthereum size={props.size} />
                 </li>
             </ul>
+            <p>Created by <a href="https://georgemc.net/">George</a></p>
         </PaymentStyles>
     )
 };
